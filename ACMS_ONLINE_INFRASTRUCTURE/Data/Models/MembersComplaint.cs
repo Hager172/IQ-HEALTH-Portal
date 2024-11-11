@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
+
+public partial class MembersComplaint
+{
+    public int Id { get; set; }
+
+    public string MemberId { get; set; } = null!;
+
+    public string Department { get; set; } = null!;
+
+    public string Complaint { get; set; } = null!;
+
+    public string? Respond { get; set; }
+
+    public bool Closed { get; set; }
+
+    public string LastUpdateBy { get; set; } = null!;
+
+    public string LastUpdateFrom { get; set; } = null!;
+
+    public DateTime LastUpdateDate { get; set; }
+
+    public string CreatedBy { get; set; } = null!;
+
+    public DateTime CreatedAt { get; set; }
+
+    public string? VendorId { get; set; }
+
+    public int? Type { get; set; }
+
+    public long? ApprovalId { get; set; }
+
+    public virtual Approval? Approval { get; set; }
+
+    public virtual AspNetUser DepartmentNavigation { get; set; } = null!;
+
+    public virtual Member Member { get; set; } = null!;
+
+    public virtual Action? TypeNavigation { get; set; }
+
+    public virtual VendorGeneral? Vendor { get; set; }
+}

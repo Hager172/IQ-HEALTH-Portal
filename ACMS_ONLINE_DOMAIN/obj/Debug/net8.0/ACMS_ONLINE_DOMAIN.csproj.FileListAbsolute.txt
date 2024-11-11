@@ -1,0 +1,11 @@
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.deps.json
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.AssemblyInfoInputs.cache
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.AssemblyInfo.cs
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.csproj.CoreCompileInputs.cache
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\refint\ACMS_ONLINE_DOMAIN.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ref\ACMS_ONLINE_DOMAIN.dll

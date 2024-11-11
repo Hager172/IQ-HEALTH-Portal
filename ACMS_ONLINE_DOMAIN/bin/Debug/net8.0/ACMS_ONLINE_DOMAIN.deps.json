@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ACMS_ONLINE_DOMAIN/1.0.0": {
+        "runtime": {
+          "ACMS_ONLINE_DOMAIN.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ACMS_ONLINE_DOMAIN/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

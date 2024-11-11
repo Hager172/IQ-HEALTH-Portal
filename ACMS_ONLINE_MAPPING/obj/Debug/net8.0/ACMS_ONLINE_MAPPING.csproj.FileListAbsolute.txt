@@ -1,0 +1,17 @@
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_MAPPING.deps.json
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_MAPPING.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_MAPPING.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_INFRASTRUCTURE.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\bin\Debug\net8.0\ACMS_ONLINE_INFRASTRUCTURE.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.csproj.AssemblyReference.cache
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.GeneratedMSBuildEditorConfig.editorconfig
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.AssemblyInfoInputs.cache
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.AssemblyInfo.cs
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.csproj.CoreCompileInputs.cache
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONL.79F6FD77.Up2Date
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\refint\ACMS_ONLINE_MAPPING.dll
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ACMS_ONLINE_MAPPING.pdb
+D:\Almashreq\last\ACMS_ONLINE\ACMS_ONLINE_MAPPING\obj\Debug\net8.0\ref\ACMS_ONLINE_MAPPING.dll
