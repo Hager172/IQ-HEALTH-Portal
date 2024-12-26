@@ -13,9 +13,13 @@ public partial class VCustomerAllBill
 
     public string CustomerContractId { get; set; } = null!;
 
+    public string? PaymentType { get; set; }
+
     public DateOnly InstallmentDate { get; set; }
 
-    public DateTime? BillDate { get; set; }
+    public DateOnly? BillDate { get; set; }
+
+    public string? BillStatus { get; set; }
 
     public decimal? BillValue { get; set; }
 
@@ -25,9 +29,13 @@ public partial class VCustomerAllBill
 
     public string InstallmentId { get; set; } = null!;
 
-    public int? InstallmentValue { get; set; }
+    public string? ContractType { get; set; }
+
+    public double? InstallmentValue { get; set; }
 
     public int HasBill { get; set; }
 
-    public decimal? Billid { get; set; }
+    public int? Billid { get; set; }
+
+    public decimal? AccBillId { get; set; }
 }

@@ -49,6 +49,8 @@ public partial class PlanItem
 
     public bool? WithApproval { get; set; }
 
+    public bool? NoteAlert { get; set; }
+
     public virtual CareItem Item { get; set; } = null!;
 
     public virtual ICollection<ItemCopayment> ItemCopayments { get; set; } = new List<ItemCopayment>();

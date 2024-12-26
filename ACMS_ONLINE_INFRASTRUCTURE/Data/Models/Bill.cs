@@ -43,13 +43,13 @@ public partial class Bill
 
     public decimal? AccBillId { get; set; }
 
+    public int? RefId { get; set; }
+
+    public int? ActionType { get; set; }
+
+    public string? TransactionType { get; set; }
+
     public virtual ICollection<BillDetail> BillDetails { get; set; } = new List<BillDetail>();
 
-    public virtual PaymentType BillTypeNavigation { get; set; } = null!;
-
-    public virtual CustomerContract Contract { get; set; } = null!;
-
     public virtual Customer Customer { get; set; } = null!;
-
-    public virtual Member? Member { get; set; }
 }

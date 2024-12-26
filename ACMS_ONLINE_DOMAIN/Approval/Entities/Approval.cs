@@ -10,7 +10,7 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
     {
 
 
-        public long ApprovalId { get;private set; }
+        public long ApprovalId { get; private set; }
 
         public DateTime ApprovalDate { get; set; }
 
@@ -72,22 +72,36 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
 
         public string? ContractId { get; set; }
 
+
+
         public int? ReqId { get; set; }
-        private List<ApprovalService> _service;
-        private List<Diagnose> _diagnoses;
-        public ACMS_ONLINE_DOMAIN.Member.Entities.Member _member { get;private set; }
+        //public List<ApprovalService> _service;
+        //public List<Diagnose> _diagnoses;
+        //private static List<ClaimsType> _clamTypes;
+        public List<ApprovalService> _service;
+        public List<Diagnose> _diagnoses;
+        public List<ClaimsType> _clamTypes;
+        public ACMS_ONLINE_DOMAIN.Member.Entities.Member _member { get; private set; }
 
-    
+
         public float CoPayment { get; private set; }
-        public double SubTotal => _service.Sum(p => p.TotalPrice());
-        public double CoPaymentAmount => SubTotal * (CoPayment / 100);
-        public double NetTotal => SubTotal - CoPaymentAmount;
+        //public double SubTotal => _service.Sum(p => p.TotalPrice());
+        //public double CoPaymentAmount => SubTotal * (CoPayment / 100);
+        // public double NetTotal => SubTotal - CoPaymentAmount;
 
-        public IReadOnlyCollection<ApprovalService> Services => _service.AsReadOnly();
-        public IReadOnlyCollection<Diagnose> Diagnoses => _diagnoses.AsReadOnly();
-
-        private Approval() { }
-        public static Approval Create (DateTime claimDate)
+        //public IReadOnlyCollection<ApprovalService> Services1 => _service.AsReadOnly();
+        //public IReadOnlyCollection<Diagnose> Diagnoses1 => _diagnoses.AsReadOnly();
+        //public IReadOnlyCollection<ClaimsType> ClamTypes1 => _clamTypes.AsReadOnly();
+        public IReadOnlyCollection<ApprovalService> Services1 => _service.AsReadOnly();
+        public IReadOnlyCollection<Diagnose> Diagnoses1 => _diagnoses.AsReadOnly();
+        public IReadOnlyCollection<ClaimsType> ClamTypes1 => _clamTypes.AsReadOnly();
+        private Approval()
+        {
+            _service = new List<ApprovalService>();
+            _diagnoses = new List<Diagnose>();
+            _clamTypes = new List<ClaimsType>();
+        }
+        public static Approval Create(DateTime claimDate)
         {
 
             //ApprovalId = GetNewApprovalId();
@@ -101,14 +115,28 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
             var approval = new Approval()
             {
                 ApprovalDate = claimDate,
-               
+
             };
 
             return approval;
 
         }
 
-        
+
+        // add claimType
+
+        public void AddClaimType(ClaimsType clamType)
+        {
+            if (clamType == null)
+                throw new ArgumentNullException(nameof(clamType));
+
+            if (_clamTypes.Any(p => p.TypeId == clamType.TypeId))
+                throw new InvalidOperationException("Service already exists in the claim.");
+
+
+
+            _clamTypes.Add(clamType);
+        }
 
         // add service
         public void AddService(ApprovalService service)
@@ -119,7 +147,7 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
             if (_service.Any(p => p.ServiceId == service.ServiceId))
                 throw new InvalidOperationException("Service already exists in the claim.");
 
-            
+
 
             _service.Add(service);
         }
@@ -150,7 +178,7 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
         }
 
         //  remove service
-        public void RemoveDiagnose(int diagnoseId)
+        public void RemoveDiagnose(string diagnoseId)
         {
             var diagnose = _diagnoses.FirstOrDefault(p => p.Id == diagnoseId);
             if (diagnose != null)
@@ -180,12 +208,12 @@ namespace ACMS_ONLINE_DOMAIN.Approval.Entities
         //}
 
 
-        public void SetApprovalId( long approvalId)
+        public void SetApprovalId(long approvalId)
         {
             ApprovalId = approvalId;
         }
 
-        private void AddMember( string insuredId)
+        private void AddMember(string insuredId)
         {
             // check member id 
             MemberId = insuredId;

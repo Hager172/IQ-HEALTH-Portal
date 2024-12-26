@@ -5,7 +5,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
 
 public partial class VendorRating
 {
-    public int VendorRateId { get; set; }
+    public long VendorRateId { get; set; }
 
     public string VendorId { get; set; } = null!;
 
@@ -20,6 +20,8 @@ public partial class VendorRating
     public string? PhoneNumber { get; set; }
 
     public long? VendorBranchSerial { get; set; }
+
+    public virtual ICollection<EntityReviewResponse> EntityReviewResponses { get; set; } = new List<EntityReviewResponse>();
 
     public virtual Member Member { get; set; } = null!;
 

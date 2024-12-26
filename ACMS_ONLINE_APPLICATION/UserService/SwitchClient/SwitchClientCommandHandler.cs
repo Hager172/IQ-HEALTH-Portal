@@ -14,19 +14,20 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 
 namespace ACMS_ONLINE_APPLICATION.User.SwitchClient
 {
     public class SwitchClientCommandHandler : IRequestHandler<SwitchClientCommand, ServiceResponse<SwitchClientCommandResponse>>
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IAuthService _authService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IHttpContextAccessor _contextAccessor;
         public SwitchClientCommandHandler
-            (   UserManager<IdentityUser> userManager,
-                SignInManager<IdentityUser> signInManager,
+            (   UserManager<ApplicationUser> userManager,
+                SignInManager<ApplicationUser> signInManager,
                 IAuthService authService,
                 IUnitOfWork unitOfWork,
                 IHttpContextAccessor contextAccessor
@@ -54,7 +55,8 @@ namespace ACMS_ONLINE_APPLICATION.User.SwitchClient
                     throw new Exception("Client Not Found");
 
                 }
-                var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == UserId);
+                //var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Id == UserId);
+                var user = await _userManager.FindByIdAsync( UserId);
 
                 if (user == null)
                 {

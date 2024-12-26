@@ -13,7 +13,7 @@ public partial class WebCustomerRequest
 
     public string? Notes { get; set; }
 
-    public DateTime? Date { get; set; }
+    public DateTime BirthDate { get; set; }
 
     public string? Status { get; set; }
 
@@ -25,7 +25,19 @@ public partial class WebCustomerRequest
 
     public string? Currency { get; set; }
 
-    public string? Customer { get; set; }
+    public int Customer { get; set; }
 
     public string? MemberPhone { get; set; }
+
+    public string? NationalId { get; set; }
+
+    public string? MemberId { get; set; }
+
+    public DateTime CreationDate { get; set; }
+
+    public virtual Customer CustomerNavigation { get; set; } = null!;
+
+    public virtual WebMembersRegistration? WebMembersRegistration { get; set; }
+
+    public virtual ICollection<WebCommonDisease> Diseases { get; set; } = new List<WebCommonDisease>();
 }

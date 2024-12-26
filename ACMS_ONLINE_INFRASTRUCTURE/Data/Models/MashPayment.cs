@@ -31,8 +31,6 @@ public partial class MashPayment
 
     public virtual Approval? Approval { get; set; }
 
-    public virtual Approval? ApprovalNavigation { get; set; }
-
     public virtual PaymentChannel PayTypeNavigation { get; set; } = null!;
 
     public virtual Inquery Req { get; set; } = null!;

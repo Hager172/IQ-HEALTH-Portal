@@ -1,5 +1,6 @@
 ﻿using ACMS_ONLINE_APPLICATION.User.Dto;
-using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
+
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,11 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
 {
     public interface IAuthService
     {
-        string GenerateToken(IdentityUser user);
+        string GenerateToken(ApplicationUser user);
 
         //string GenerateRefreshToken(IdentityUser user);
         public string GetUserCurrentClient();
-        Task<JwtSecurityToken> CreateJwtToken(IdentityUser user, OnlineUserClient? userClient);
+        Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user, OnlineUserClient? userClient);
         public Task<List<UserClientDto>> GetUserClientList (string userId);
     }
 }

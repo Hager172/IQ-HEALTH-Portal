@@ -22,4 +22,8 @@ public partial class AcmsOption
     public virtual ICollection<MobileNotification> MobileNotificationTypes { get; set; } = new List<MobileNotification>();
 
     public virtual AcmsOption? OptGroupNavigation { get; set; }
+
+    public virtual ICollection<EntityReviewResponse> Responses { get; set; } = new List<EntityReviewResponse>();
+
+    public virtual ICollection<ServiceReviewResponse> ResponsesNavigation { get; set; } = new List<ServiceReviewResponse>();
 }

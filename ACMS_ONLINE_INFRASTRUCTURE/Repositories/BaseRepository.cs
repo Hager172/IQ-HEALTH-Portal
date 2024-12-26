@@ -9,8 +9,9 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Data
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         //protected IDbContextFactory _iDbContextFactory;
-        protected ApplicationDbContext _context;
-        public BaseRepository(ApplicationDbContext context)
+        protected DbContext _context;
+
+        public BaseRepository(DbContext context)
         {
             
             _context = context;

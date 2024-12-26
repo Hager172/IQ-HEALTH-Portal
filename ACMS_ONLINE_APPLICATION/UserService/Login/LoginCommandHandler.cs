@@ -11,18 +11,20 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace ACMS_ONLINE_APPLICATION.User.Login
 {
-    public class LoginCommandHandler :IRequestHandler<LoginCommandDto, LoginResponseDto>
+    public class LoginCommandHandler :IRequestHandler<LoginCommandDto, ServiceResponse<LoginResponseDto>>
     {
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IAuthService _authService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public LoginCommandHandler(UserManager<IdentityUser> userManager,
-                                   SignInManager<IdentityUser> signInManager,
+        public LoginCommandHandler(UserManager<ApplicationUser> userManager,
+                                   SignInManager<ApplicationUser> signInManager,
                                    IAuthService authService,
                                    IUnitOfWork unitOfWork
                                     )
@@ -33,13 +35,16 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
             _authService = authService;
             _unitOfWork = unitOfWork;
         }
-        public async Task<LoginResponseDto> Handle(LoginCommandDto request, CancellationToken cancellationToken)
+        public async Task<ServiceResponse<LoginResponseDto>> Handle(LoginCommandDto request, CancellationToken cancellationToken)
         {
             var serviceResponse = new ServiceResponse<LoginResponseDto>();
 
             try
             {
-                var user = await _userManager.Users.FirstOrDefaultAsync(x => x.UserName == request.UserName.Trim());
+
+               
+
+                var user = await _userManager.FindByNameAsync(request.UserName.Trim());
 
                 if (user == null)
                 {
@@ -64,23 +69,24 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                         VendorId = client.VendorId,
                         BranchId = client.BranchId.ToString(),
                         IsAuthenticated = true,
-                        Token = new JwtSecurityTokenHandler().WriteToken(token),
+                        AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
 
 
 
                         //Clients = _authService.g
                     };
 
-
-                }
+					serviceResponse.Data= loginResponse;
+                   
+				}
             }
             catch (Exception ex)
             {
 
             }
 
-            return new LoginResponseDto();
-            //return serviceResponse;
+            //return new LoginResponseDto();
+            return serviceResponse;
         }
 
     

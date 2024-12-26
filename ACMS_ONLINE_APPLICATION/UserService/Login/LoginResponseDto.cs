@@ -17,8 +17,8 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
         public string? Username { get; set; }
         public List<UserClientDto> Clients { get; set; }
         public List<string>? Roles { get; set; }
-        public string? Token { get; set; }
-        public DateTime? ExpiresOn { get; set; }
+        public string? AuthToken { get; set; }
+        public DateTime? ExpiresIn { get; set; }
 
         //[JsonIgnore]
         public string? RefreshToken { get; set; }

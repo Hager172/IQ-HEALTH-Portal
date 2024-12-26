@@ -13,7 +13,7 @@ public partial class ContractInstallment
 
     public bool? IsValue { get; set; }
 
-    public int? InstallmentValue { get; set; }
+    public double? InstallmentValue { get; set; }
 
     public string? LastUpdatedFrom { get; set; }
 

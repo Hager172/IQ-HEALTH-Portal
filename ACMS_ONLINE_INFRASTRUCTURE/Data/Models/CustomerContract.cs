@@ -61,8 +61,6 @@ public partial class CustomerContract
 
     public int? PolicyDocument { get; set; }
 
-    public virtual ICollection<Bill> Bills { get; set; } = new List<Bill>();
-
     public virtual ICollection<ContractActivity> ContractActivities { get; set; } = new List<ContractActivity>();
 
     public virtual ICollection<ContractBroker> ContractBrokers { get; set; } = new List<ContractBroker>();

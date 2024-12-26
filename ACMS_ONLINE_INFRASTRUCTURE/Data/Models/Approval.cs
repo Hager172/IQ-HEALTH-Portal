@@ -85,9 +85,7 @@ public partial class Approval
 
     public virtual ICollection<Approval> InverseParentApprovalNavigation { get; set; } = new List<Approval>();
 
-    public virtual ICollection<MashPayment> MashPaymentApprovalNavigations { get; set; } = new List<MashPayment>();
-
-    public virtual ICollection<MashPayment> MashPaymentApprovals { get; set; } = new List<MashPayment>();
+    public virtual ICollection<MashPayment> MashPayments { get; set; } = new List<MashPayment>();
 
     public virtual ICollection<McAuthenticateLog> McAuthenticateLogs { get; set; } = new List<McAuthenticateLog>();
 
@@ -108,4 +106,6 @@ public partial class Approval
     public virtual VendorGeneral Vendor { get; set; } = null!;
 
     public virtual ICollection<OnlineDiagnosis> Diagnoses { get; set; } = new List<OnlineDiagnosis>();
+
+    public virtual ICollection<ClaimsType> Types { get; set; } = new List<ClaimsType>();
 }

@@ -30,35 +30,35 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.MeddleWare
             Console.WriteLine($"Authorization Header: {authHeader}");
 
             // If a token is present 
-            if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
-            {
-                var token = authHeader.Substring("Bearer ".Length).Trim();
-                Console.WriteLine($"Token: {token}");
+            //if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
+            //{
+            //    var token = authHeader.Substring("Bearer ".Length).Trim();
+            //    Console.WriteLine($"Token: {token}");
 
-                // Validate the token manually if needed
-                var tokenHandler = new JwtSecurityTokenHandler();
-                try
-                {
-                    var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSetting:Key"])),
-                        ValidateIssuer = true,
-                        ValidIssuer = _configuration["JwtSetting:Issuer"],
-                        ValidateAudience = true,
-                        ValidAudience = _configuration["JwtSetting:Audience"],
-                        ValidateLifetime = true,
-                        ClockSkew = TimeSpan.Zero // Set to zero for immediate expiration check
-                    }, out SecurityToken validatedToken);
+            //    // Validate the token manually if needed
+            //    var tokenHandler = new JwtSecurityTokenHandler();
+            //    try
+            //    {
+            //        var principal = tokenHandler.ValidateToken(token, new TokenValidationParameters
+            //        {
+            //            ValidateIssuerSigningKey = true,
+            //            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["JwtSetting:Key"])),
+            //            ValidateIssuer = true,
+            //            ValidIssuer = _configuration["JwtSetting:Issuer"],
+            //            ValidateAudience = true,
+            //            ValidAudience = _configuration["JwtSetting:Audience"],
+            //            ValidateLifetime = true,
+            //            ClockSkew = TimeSpan.Zero // Set to zero for immediate expiration check
+            //        }, out SecurityToken validatedToken);
 
-                    context.User = principal; // Set the user in the context
-                    Console.WriteLine("Token is valid");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Token validation failed: {ex.Message}");
-                }
-            }
+            //        context.User = principal; // Set the user in the context
+            //        Console.WriteLine("Token is valid");
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine($"Token validation failed: {ex.Message}");
+            //    }
+            //}
 
             if (context.User.Identity.IsAuthenticated)
             {

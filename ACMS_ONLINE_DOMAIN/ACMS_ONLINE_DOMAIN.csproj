@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Approval\Interfaces\" />
-    <Folder Include="Identity\Interfaces\" />
-    <Folder Include="Identity\ValueObjects\" />
     <Folder Include="Medication\Interfaces\" />
     <Folder Include="Medication\ValueObjects\" />
     <Folder Include="Member\Interfaces\" />

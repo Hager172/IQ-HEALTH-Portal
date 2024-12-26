@@ -20,4 +20,6 @@ public partial class ApprovalRating
     public virtual Approval Approval { get; set; } = null!;
 
     public virtual Member Member { get; set; } = null!;
+
+    public virtual ICollection<ServiceReviewResponse> ServiceReviewResponses { get; set; } = new List<ServiceReviewResponse>();
 }

@@ -1,5 +1,5 @@
 ﻿using ACMS_ONLINE_APPLICATION.User.Auth;
-using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +16,7 @@ using Microsoft.Extensions.Options;
 using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
 using ACMS_ONLINE_APPLICATION.User.Dto;
 using AutoMapper;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 
 namespace ACMS_ONLINE_APPLICATION.User.Auth
 {
@@ -23,10 +24,10 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
     {
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly JWT _jwt;
         private readonly IUnitOfWork _unitOfWork;
         //private readonly IHttpContextAccessor _httpContextAccessor;
@@ -36,10 +37,10 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
             (
             IConfiguration configuration,
             IHttpContextAccessor httpContextAccessor,
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager,
 
-            RoleManager<IdentityRole> roleManager,
+            RoleManager<ApplicationRole> roleManager,
             IOptions<JWT> jwt,
             IUnitOfWork unitOfWork,
             IMapper mapper
@@ -55,7 +56,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
             _mapper = mapper;
         }
 
-        public string GenerateToken(IdentityUser user)
+        public string GenerateToken(ApplicationUser user)
         {
             var claims = new[]
             {
@@ -76,7 +77,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
-        public async Task<JwtSecurityToken> CreateJwtToken(IdentityUser user, OnlineUserClient? userClient)
+        public async Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user, OnlineUserClient? userClient)
         {
             var userClaims = await _userManager.GetClaimsAsync(user);
             var roles = await _userManager.GetRolesAsync(user);

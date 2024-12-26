@@ -130,4 +130,6 @@ public partial class Customer
     public virtual ICollection<UserCustomer> UserCustomers { get; set; } = new List<UserCustomer>();
 
     public virtual ICollection<VendorLog> VendorLogs { get; set; } = new List<VendorLog>();
+
+    public virtual ICollection<WebCustomerRequest> WebCustomerRequests { get; set; } = new List<WebCustomerRequest>();
 }

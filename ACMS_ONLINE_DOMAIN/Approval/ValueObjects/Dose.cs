@@ -35,7 +35,9 @@ namespace ACMS_ONLINE_DOMAIN.Approval.ValueObjects
             if (!DoseUnits.HasValue || !DoseRepeat.HasValue || !DoseDuration.HasValue)
                 return null;
 
-            return  DoseRepeat.Value * DoseDuration.Value / DoseUnits.Value/*handle devide by zero! */;
+
+
+            return  DoseRepeat.Value * DoseDuration.Value / DoseUnits.Value;
         }
 
         

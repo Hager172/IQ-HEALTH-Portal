@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using Action = ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Action;
 
 namespace ACMS_ONLINE_INFRASTRUCTURE.Data;
 
@@ -38,7 +39,7 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<AcmsWarehouse> AcmsWarehouses { get; set; }
 
-    public virtual DbSet<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Action> Actions { get; set; }
+    public virtual DbSet<Action> Actions { get; set; }
 
     public virtual DbSet<ActiveCustomer> ActiveCustomers { get; set; }
 
@@ -110,6 +111,8 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<ClaimLotsFormsCode> ClaimLotsFormsCodes { get; set; }
 
+    public virtual DbSet<ClaimsType> ClaimsTypes { get; set; }
+
     public virtual DbSet<Client> Clients { get; set; }
 
     public virtual DbSet<Contact> Contacts { get; set; }
@@ -169,6 +172,8 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<DisRefund> DisRefunds { get; set; }
 
     public virtual DbSet<DueAttachedFile> DueAttachedFiles { get; set; }
+
+    public virtual DbSet<EntityReviewResponse> EntityReviewResponses { get; set; }
 
     public virtual DbSet<GroupBatch> GroupBatches { get; set; }
 
@@ -311,6 +316,8 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<SchApprovalsLog> SchApprovalsLogs { get; set; }
 
     public virtual DbSet<SchCustomerArchive> SchCustomerArchives { get; set; }
+
+    public virtual DbSet<ServiceReviewResponse> ServiceReviewResponses { get; set; }
 
     public virtual DbSet<SourceQuery> SourceQueries { get; set; }
 
@@ -580,13 +587,21 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<VisitDiagnosis> VisitDiagnoses { get; set; }
 
+    public virtual DbSet<VitalSign> VitalSigns { get; set; }
+
+    public virtual DbSet<VitalSignsMember> VitalSignsMembers { get; set; }
+
     public virtual DbSet<WafdeenMashEmp> WafdeenMashEmps { get; set; }
 
     public virtual DbSet<WafdeenMembersSchedule> WafdeenMembersSchedules { get; set; }
 
     public virtual DbSet<WafdeenVisit> WafdeenVisits { get; set; }
 
+    public virtual DbSet<WebCommonDisease> WebCommonDiseases { get; set; }
+
     public virtual DbSet<WebCustomerRequest> WebCustomerRequests { get; set; }
+
+    public virtual DbSet<WebMembersRegistration> WebMembersRegistrations { get; set; }
 
     public virtual DbSet<WebOrder> WebOrders { get; set; }
 
@@ -597,6 +612,8 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<WebVClient> WebVClients { get; set; }
 
     public virtual DbSet<WebVIcustomer> WebVIcustomers { get; set; }
+
+    public virtual DbSet<WithContractedPrice> WithContractedPrices { get; set; }
 
 //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -854,7 +871,7 @@ public partial class ApplicationDbContext : DbContext
 
         modelBuilder.Entity<AcmsPharma>(entity =>
         {
-            entity.ToTable("acms_pharma");
+            entity.ToTable("acms_pharma", tb => tb.HasTrigger("insert_oldpharma"));
 
             entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.Active).HasColumnName("active");
@@ -987,7 +1004,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Type).HasColumnName("type");
         });
 
-        modelBuilder.Entity<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Action>(entity =>
+        modelBuilder.Entity<Action>(entity =>
         {
             entity.ToTable("actions");
 
@@ -1170,9 +1187,7 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .UseCollation("Arabic_100_CI_AI")
                 .HasColumnName("private_notes");
-            entity.Property(e => e.ReqId)
-                .IsRequired()
-                .HasColumnName("req_id");
+            entity.Property(e => e.ReqId).HasColumnName("req_id");
             entity.Property(e => e.RequestSource)
                 .HasMaxLength(16)
                 .IsUnicode(false)
@@ -1235,6 +1250,24 @@ public partial class ApplicationDbContext : DbContext
                             .HasMaxLength(50)
                             .IsUnicode(false)
                             .HasColumnName("diagnose_id");
+                    });
+
+            entity.HasMany(d => d.Types).WithMany(p => p.Approvals)
+                .UsingEntity<Dictionary<string, object>>(
+                    "ApprovalClaimsType",
+                    r => r.HasOne<ClaimsType>().WithMany()
+                        .HasForeignKey("TypeId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_ApprovalClaimsType_ClaimsType"),
+                    l => l.HasOne<Approval>().WithMany()
+                        .HasForeignKey("ApprovalId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_ApprovalClaimsType_approvals"),
+                    j =>
+                    {
+                        j.HasKey("ApprovalId", "TypeId");
+                        j.ToTable("ApprovalClaimsType");
+                        j.IndexerProperty<int>("TypeId").HasColumnName("TypeID");
                     });
         });
 
@@ -2199,6 +2232,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.AccBillId)
                 .HasColumnType("numeric(9, 0)")
                 .HasColumnName("acc_bill_id");
+            entity.Property(e => e.ActionType).HasColumnName("action_type");
             entity.Property(e => e.BillCreatedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("bill_created_date");
@@ -2248,25 +2282,16 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("notes");
             entity.Property(e => e.Printed).HasColumnName("printed");
-
-            entity.HasOne(d => d.BillTypeNavigation).WithMany(p => p.Bills)
-                .HasForeignKey(d => d.BillType)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_bills_payment_types");
-
-            entity.HasOne(d => d.Contract).WithMany(p => p.Bills)
-                .HasForeignKey(d => d.ContractId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_CONTRACT_ID");
+            entity.Property(e => e.RefId).HasColumnName("ref_id");
+            entity.Property(e => e.TransactionType)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("transaction_type");
 
             entity.HasOne(d => d.Customer).WithMany(p => p.Bills)
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_CUSTOMER_ID");
-
-            entity.HasOne(d => d.Member).WithMany(p => p.Bills)
-                .HasForeignKey(d => d.MemberId)
-                .HasConstraintName("FK_MEMBER_ID");
+                .HasConstraintName("FK_bills_Customers");
         });
 
         modelBuilder.Entity<BillDetail>(entity =>
@@ -2659,6 +2684,20 @@ public partial class ApplicationDbContext : DbContext
                 .HasForeignKey(d => d.VendorId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Vendor");
+        });
+
+        modelBuilder.Entity<ClaimsType>(entity =>
+        {
+            entity.HasKey(e => e.TypeId).HasName("PK__ClaimsTy__516F0395BC004D72");
+
+            entity.ToTable("ClaimsType");
+
+            entity.Property(e => e.TypeId)
+                .ValueGeneratedNever()
+                .HasColumnName("TypeID");
+            entity.Property(e => e.Type)
+                .HasMaxLength(200)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Client>(entity =>
@@ -4059,6 +4098,60 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_Due_attached_files_Batches");
         });
 
+        modelBuilder.Entity<EntityReviewResponse>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Entity_r__3214EC07AAAC1839");
+
+            entity.ToTable("Entity_review_response");
+
+            entity.Property(e => e.FeedbackStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_by");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("last_update_date");
+            entity.Property(e => e.LastUpdateFrom)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_from");
+            entity.Property(e => e.Note)
+                .IsUnicode(false)
+                .HasColumnName("note");
+            entity.Property(e => e.RatingId).HasColumnName("rating_id");
+            entity.Property(e => e.ReviewStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("Review_status");
+
+            entity.HasOne(d => d.Rating).WithMany(p => p.EntityReviewResponses)
+                .HasForeignKey(d => d.RatingId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("EntityReview_VendorRating");
+
+            entity.HasMany(d => d.Options).WithMany(p => p.Responses)
+                .UsingEntity<Dictionary<string, object>>(
+                    "EntityResponseOption",
+                    r => r.HasOne<AcmsOption>().WithMany()
+                        .HasForeignKey("OptionId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_EntityResponseOptions_Options"),
+                    l => l.HasOne<EntityReviewResponse>().WithMany()
+                        .HasForeignKey("ResponseId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_EntityResponseOptions_Responses"),
+                    j =>
+                    {
+                        j.HasKey("ResponseId", "OptionId");
+                        j.ToTable("Entity_Response_Options");
+                    });
+        });
+
         modelBuilder.Entity<GroupBatch>(entity =>
         {
             entity.HasKey(e => new { e.BatchId, e.GroupId });
@@ -4606,7 +4699,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.PayValue).HasColumnName("pay_value");
             entity.Property(e => e.ReqId).HasColumnName("req_id");
 
-            entity.HasOne(d => d.Approval).WithMany(p => p.MashPaymentApprovals)
+            entity.HasOne(d => d.Approval).WithMany(p => p.MashPayments)
                 .HasForeignKey(d => d.ApprovalId)
                 .HasConstraintName("FK_mash_payments_approvals1");
 
@@ -4619,11 +4712,6 @@ public partial class ApplicationDbContext : DbContext
                 .HasForeignKey(d => d.ReqId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_mash_payments_inqueries");
-
-            entity.HasOne(d => d.ApprovalNavigation).WithMany(p => p.MashPaymentApprovalNavigations)
-                .HasPrincipalKey(p => new { p.ApprovalId, p.ReqId })
-                .HasForeignKey(d => new { d.ApprovalId, d.ReqId })
-                .HasConstraintName("FK_mash_payments_approvals");
         });
 
         modelBuilder.Entity<McAuthenticate>(entity =>
@@ -5893,7 +5981,6 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("item");
             entity.Property(e => e.Description)
-                .HasMaxLength(350)
                 .IsUnicode(false)
                 .HasColumnName("description");
             entity.Property(e => e.Text)
@@ -6194,6 +6281,7 @@ public partial class ApplicationDbContext : DbContext
                 .UseCollation("Arabic_100_CI_AI")
                 .HasColumnName("last_update_from");
             entity.Property(e => e.MaxValue).HasColumnName("max_value");
+            entity.Property(e => e.NoteAlert).HasColumnName("note_alert");
             entity.Property(e => e.PlanItemCopaymentLevel)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -6786,6 +6874,59 @@ public partial class ApplicationDbContext : DbContext
                 .HasForeignKey(d => d.CustomerId)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_sch_customer_archive_Customers");
+        });
+
+        modelBuilder.Entity<ServiceReviewResponse>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK_vendor_review_response");
+
+            entity.ToTable("service_review_response");
+
+            entity.Property(e => e.FeedbackStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .IsFixedLength();
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_by");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("last_update_date");
+            entity.Property(e => e.LastUpdateFrom)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_from");
+            entity.Property(e => e.Note)
+                .IsUnicode(false)
+                .HasColumnName("note");
+            entity.Property(e => e.RatingId).HasColumnName("rating_id");
+            entity.Property(e => e.ReviewStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .IsFixedLength()
+                .HasColumnName("Review_status");
+
+            entity.HasOne(d => d.Rating).WithMany(p => p.ServiceReviewResponses)
+                .HasForeignKey(d => d.RatingId)
+                .HasConstraintName("FK_VendorReviewResponse_VendorRating");
+
+            entity.HasMany(d => d.Options).WithMany(p => p.ResponsesNavigation)
+                .UsingEntity<Dictionary<string, object>>(
+                    "ServiceResponseOption",
+                    r => r.HasOne<AcmsOption>().WithMany()
+                        .HasForeignKey("OptionId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_VendorResponseOptions_Options"),
+                    l => l.HasOne<ServiceReviewResponse>().WithMany()
+                        .HasForeignKey("ResponseId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_VendorResponseOptions_Responses"),
+                    j =>
+                    {
+                        j.HasKey("ResponseId", "OptionId").HasName("PK_VendorResponseOptions");
+                        j.ToTable("service_Response_Options");
+                    });
         });
 
         modelBuilder.Entity<SourceQuery>(entity =>
@@ -8661,19 +8802,26 @@ public partial class ApplicationDbContext : DbContext
                 .HasNoKey()
                 .ToView("v_customer_all_bill");
 
-            entity.Property(e => e.Balance)
-                .HasColumnType("numeric(38, 3)")
-                .HasColumnName("balance");
-            entity.Property(e => e.BillDate)
-                .HasColumnType("datetime")
-                .HasColumnName("BILL_DATE");
-            entity.Property(e => e.BillValue)
-                .HasColumnType("numeric(38, 3)")
-                .HasColumnName("bill_value");
-            entity.Property(e => e.Billid)
+            entity.Property(e => e.AccBillId)
                 .HasColumnType("numeric(9, 0)")
-                .HasColumnName("billid");
-            entity.Property(e => e.Collected).HasColumnType("numeric(38, 3)");
+                .HasColumnName("acc_bill_id");
+            entity.Property(e => e.Balance)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("balance");
+            entity.Property(e => e.BillDate).HasColumnName("BILL_DATE");
+            entity.Property(e => e.BillStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("bill_status");
+            entity.Property(e => e.BillValue)
+                .HasColumnType("decimal(18, 2)")
+                .HasColumnName("bill_value");
+            entity.Property(e => e.Billid).HasColumnName("billid");
+            entity.Property(e => e.Collected).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.ContractType)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("Contract_Type");
             entity.Property(e => e.CustomerContractId)
                 .HasMaxLength(30)
                 .IsUnicode(false)
@@ -8695,6 +8843,10 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("installment_ID");
             entity.Property(e => e.InstallmentValue).HasColumnName("installment_value");
+            entity.Property(e => e.PaymentType)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("payment_type");
         });
 
         modelBuilder.Entity<VCustomerConsumptionSummary>(entity =>
@@ -8859,6 +9011,7 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.BillId)
                 .HasColumnType("numeric(9, 0)")
                 .HasColumnName("BILL_ID");
+            entity.Property(e => e.BillStatus).HasColumnName("BILL_STATUS");
             entity.Property(e => e.BillValue)
                 .HasColumnType("numeric(13, 3)")
                 .HasColumnName("bill_value");
@@ -8867,6 +9020,7 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(7)
                 .IsUnicode(false)
                 .HasColumnName("contract_type");
+            entity.Property(e => e.Creditvalue).HasColumnName("creditvalue");
             entity.Property(e => e.CustomerContractId)
                 .HasMaxLength(30)
                 .IsUnicode(false)
@@ -8881,12 +9035,28 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(60)
                 .IsUnicode(false)
                 .HasColumnName("customer_name");
+            entity.Property(e => e.CustomerTaxCard)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .UseCollation("Arabic_100_CI_AI")
+                .HasColumnName("customer_tax_card");
+            entity.Property(e => e.Debitvalue).HasColumnName("debitvalue");
+            entity.Property(e => e.ExternalCode)
+                .HasColumnType("numeric(12, 0)")
+                .HasColumnName("external_code");
             entity.Property(e => e.GroupId).HasColumnName("group_id");
             entity.Property(e => e.InsurerId).HasColumnName("insurer_id");
             entity.Property(e => e.InsurerName)
                 .HasMaxLength(60)
                 .IsUnicode(false)
                 .HasColumnName("insurer_name");
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("LAST_UPDATE_BY");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("LAST_UPDATE_DATE");
             entity.Property(e => e.PaymentType)
                 .HasMaxLength(20)
                 .IsUnicode(false)
@@ -13221,6 +13391,67 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_visit_diagnoses_wafdeen_visits");
         });
 
+        modelBuilder.Entity<VitalSign>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__vital_si__3213E83F2611521C");
+
+            entity.ToTable("vital_signs");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.LogoIcon)
+                .HasMaxLength(100)
+                .IsUnicode(false)
+                .HasColumnName("logo_icon");
+            entity.Property(e => e.MeasurmentUnit)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("measurment_unit");
+            entity.Property(e => e.Name)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("name");
+        });
+
+        modelBuilder.Entity<VitalSignsMember>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__vital_si__3213E83FB3FFAE1B");
+
+            entity.ToTable("vital_signs_Member");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_by");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("last_update_date");
+            entity.Property(e => e.LastUpdateFrom)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_from");
+            entity.Property(e => e.MemberId)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("member_id");
+            entity.Property(e => e.Notes)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.Reading)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("reading");
+            entity.Property(e => e.VitalCategory).HasColumnName("vital_category");
+
+            entity.HasOne(d => d.Member).WithMany(p => p.VitalSignsMembers)
+                .HasForeignKey(d => d.MemberId)
+                .HasConstraintName("FK__vital_sig__membe__2300C5FF");
+
+            entity.HasOne(d => d.VitalCategoryNavigation).WithMany(p => p.VitalSignsMembers)
+                .HasForeignKey(d => d.VitalCategory)
+                .HasConstraintName("FK__vital_sig__vital__23F4EA38");
+        });
+
         modelBuilder.Entity<WafdeenMashEmp>(entity =>
         {
             entity.HasKey(e => e.EmpId);
@@ -13413,29 +13644,52 @@ public partial class ApplicationDbContext : DbContext
                 .HasConstraintName("FK_wafdeen_visits_Vendor_General");
         });
 
+        modelBuilder.Entity<WebCommonDisease>(entity =>
+        {
+            entity.HasKey(e => e.DiseaseId).HasName("pk_common_disease");
+
+            entity.ToTable("web_common_diseases");
+
+            entity.Property(e => e.DiseaseId).HasColumnName("disease_id");
+            entity.Property(e => e.ArabicName)
+                .HasMaxLength(300)
+                .IsUnicode(false)
+                .HasColumnName("arabic_name");
+            entity.Property(e => e.EnglishName)
+                .HasMaxLength(300)
+                .IsUnicode(false)
+                .HasColumnName("english_name");
+        });
+
         modelBuilder.Entity<WebCustomerRequest>(entity =>
         {
             entity.HasKey(e => e.Serial);
 
             entity.ToTable("Web_CustomerRequest");
 
+            entity.HasIndex(e => e.NationalId, "UQ__Web_Cust__9560E95DDE41CCF0").IsUnique();
+
             entity.Property(e => e.Serial).HasColumnName("serial");
+            entity.Property(e => e.BirthDate)
+                .HasColumnType("datetime")
+                .HasColumnName("birth_date");
             entity.Property(e => e.CoverageLimit).HasColumnName("coverage_limit");
             entity.Property(e => e.CreatedBy)
                 .HasMaxLength(120)
                 .IsUnicode(false)
                 .HasColumnName("created_by");
+            entity.Property(e => e.CreationDate)
+                .HasColumnType("datetime")
+                .HasColumnName("creation_date");
             entity.Property(e => e.Currency)
                 .HasMaxLength(5)
                 .IsUnicode(false)
                 .HasColumnName("currency");
-            entity.Property(e => e.Customer)
-                .HasMaxLength(15)
+            entity.Property(e => e.Customer).HasColumnName("customer");
+            entity.Property(e => e.MemberId)
+                .HasMaxLength(20)
                 .IsUnicode(false)
-                .HasColumnName("customer");
-            entity.Property(e => e.Date)
-                .HasColumnType("datetime")
-                .HasColumnName("date");
+                .HasColumnName("member_id");
             entity.Property(e => e.MemberName)
                 .HasMaxLength(50)
                 .IsUnicode(false)
@@ -13444,6 +13698,10 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("member_phone");
+            entity.Property(e => e.NationalId)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("national_id");
             entity.Property(e => e.Notes)
                 .HasMaxLength(500)
                 .IsUnicode(false)
@@ -13460,6 +13718,95 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("type");
+
+            entity.HasOne(d => d.CustomerNavigation).WithMany(p => p.WebCustomerRequests)
+                .HasForeignKey(d => d.Customer)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_WebCustomerRequest_Customers");
+
+            entity.HasMany(d => d.Diseases).WithMany(p => p.Serials)
+                .UsingEntity<Dictionary<string, object>>(
+                    "WebMemberCommonDisease",
+                    r => r.HasOne<WebCommonDisease>().WithMany()
+                        .HasForeignKey("DiseaseId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("fk_MemberCommonDiseases_WebCommonDiseases"),
+                    l => l.HasOne<WebCustomerRequest>().WithMany()
+                        .HasForeignKey("SerialId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("fk_MemberCommonDiseases_Web_CustomerRequest"),
+                    j =>
+                    {
+                        j.HasKey("SerialId", "DiseaseId").HasName("c_pk_common_diseases");
+                        j.ToTable("Web_member_common_diseases");
+                        j.IndexerProperty<long>("SerialId").HasColumnName("serial_id");
+                        j.IndexerProperty<int>("DiseaseId").HasColumnName("disease_id");
+                    });
+        });
+
+        modelBuilder.Entity<WebMembersRegistration>(entity =>
+        {
+            entity.HasKey(e => e.SerialId).HasName("pk_WebMemberRegistration");
+
+            entity.ToTable("web_members_registration");
+
+            entity.Property(e => e.SerialId)
+                .ValueGeneratedNever()
+                .HasColumnName("serial_id");
+            entity.Property(e => e.AllergyMedications)
+                .IsUnicode(false)
+                .HasColumnName("allergy_medications");
+            entity.Property(e => e.AnySurgeries)
+                .IsUnicode(false)
+                .HasColumnName("any_surgeries");
+            entity.Property(e => e.BrithDate)
+                .HasColumnType("datetime")
+                .HasColumnName("brith_date");
+            entity.Property(e => e.Gender)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("gender");
+            entity.Property(e => e.HasEverAnyInfection).HasColumnName("has_ever_any_infection");
+            entity.Property(e => e.HasMedicine).HasColumnName("has_medicine");
+            entity.Property(e => e.Height).HasColumnName("height");
+            entity.Property(e => e.InfectionNotes)
+                .IsUnicode(false)
+                .HasColumnName("infection_notes");
+            entity.Property(e => e.IsSmoking).HasColumnName("is_smoking");
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_by");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("last_update_date");
+            entity.Property(e => e.LastUpdateFrom)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_from");
+            entity.Property(e => e.MaritalStatus)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("marital_status");
+            entity.Property(e => e.MedicineNote)
+                .IsUnicode(false)
+                .HasColumnName("medicine_note");
+            entity.Property(e => e.Name)
+                .HasMaxLength(500)
+                .IsUnicode(false)
+                .HasColumnName("name");
+            entity.Property(e => e.Notes)
+                .IsUnicode(false)
+                .HasColumnName("notes");
+            entity.Property(e => e.OtherDiseases)
+                .IsUnicode(false)
+                .HasColumnName("other_diseases");
+            entity.Property(e => e.Weight).HasColumnName("weight");
+
+            entity.HasOne(d => d.Serial).WithOne(p => p.WebMembersRegistration)
+                .HasForeignKey<WebMembersRegistration>(d => d.SerialId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("fk_WebMemberRegistration_WebCustomerRequest");
         });
 
         modelBuilder.Entity<WebOrder>(entity =>
@@ -13598,6 +13945,50 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .UseCollation("Arabic_100_CI_AI")
                 .HasColumnName("customer_name");
+        });
+
+        modelBuilder.Entity<WithContractedPrice>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__WithCont__3214EC07FB3B082B");
+
+            entity.Property(e => e.CreationDate)
+                .HasColumnType("datetime")
+                .HasColumnName("creation_date");
+            entity.Property(e => e.LastUpdateBy)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_by");
+            entity.Property(e => e.LastUpdateDate)
+                .HasColumnType("datetime")
+                .HasColumnName("last_update_date");
+            entity.Property(e => e.LastUpdateFrom)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("last_update_from");
+            entity.Property(e => e.MemberId)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("member_id");
+            entity.Property(e => e.PStatus)
+                .HasMaxLength(1)
+                .IsUnicode(false)
+                .HasColumnName("p_status");
+            entity.Property(e => e.PatientName)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("patient_name");
+            entity.Property(e => e.VendorId)
+                .HasMaxLength(50)
+                .IsUnicode(false)
+                .HasColumnName("vendor_id");
+
+            entity.HasOne(d => d.Member).WithMany(p => p.WithContractedPrices)
+                .HasForeignKey(d => d.MemberId)
+                .HasConstraintName("FK_Members_id");
+
+            entity.HasOne(d => d.Vendor).WithMany(p => p.WithContractedPrices)
+                .HasForeignKey(d => d.VendorId)
+                .HasConstraintName("vendor_id_FK");
         });
 
         OnModelCreatingPartial(modelBuilder);

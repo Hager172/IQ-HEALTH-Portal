@@ -135,6 +135,8 @@ public partial class VendorGeneral
 
     public virtual ICollection<WafdeenVisit> WafdeenVisits { get; set; } = new List<WafdeenVisit>();
 
+    public virtual ICollection<WithContractedPrice> WithContractedPrices { get; set; } = new List<WithContractedPrice>();
+
     public virtual ICollection<VendorCategory> Categories { get; set; } = new List<VendorCategory>();
 
     public virtual ICollection<VendorClaimPool> Pools { get; set; } = new List<VendorClaimPool>();

@@ -32,7 +32,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Services
             return new ApplicationDbContext(optionsBuilder.Options);
         }
        
-       
+        
     }
     public enum DataSource
     {

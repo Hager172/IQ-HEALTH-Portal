@@ -105,8 +105,6 @@ public partial class Member
 
     public virtual ICollection<BillDetail> BillDetails { get; set; } = new List<BillDetail>();
 
-    public virtual ICollection<Bill> Bills { get; set; } = new List<Bill>();
-
     public virtual ICollection<DisRefund> DisRefunds { get; set; } = new List<DisRefund>();
 
     public virtual ICollection<Inquery> InqueryReqMemberNavigations { get; set; } = new List<Inquery>();
@@ -143,9 +141,13 @@ public partial class Member
 
     public virtual ICollection<VendorRating> VendorRatings { get; set; } = new List<VendorRating>();
 
+    public virtual ICollection<VitalSignsMember> VitalSignsMembers { get; set; } = new List<VitalSignsMember>();
+
     public virtual ICollection<WafdeenMembersSchedule> WafdeenMembersSchedules { get; set; } = new List<WafdeenMembersSchedule>();
 
     public virtual ICollection<WafdeenVisit> WafdeenVisits { get; set; } = new List<WafdeenVisit>();
+
+    public virtual ICollection<WithContractedPrice> WithContractedPrices { get; set; } = new List<WithContractedPrice>();
 
     public virtual ICollection<OnlineDiagnosis> Diagnoses { get; set; } = new List<OnlineDiagnosis>();
 }

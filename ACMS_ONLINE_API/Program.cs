@@ -2,6 +2,7 @@ using ACMS_ONLINE_APPLICATION;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberList;
 using ACMS_ONLINE_APPLICATION.User.Auth;
 using ACMS_ONLINE_INFRASTRUCTURE.Data;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
 using ACMS_ONLINE_INFRASTRUCTURE.MeddleWare;
 using ACMS_ONLINE_INFRASTRUCTURE.Services;
@@ -21,7 +22,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => {
 
 
     options.SignIn.RequireConfirmedAccount = false;
@@ -84,15 +85,19 @@ builder.Services.AddAuthentication(options =>
     });
 
 
+
+
 builder.Services.AddDbContext<IdentityContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ClientConnections:2"));
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString("1"));
 });
+
 
 builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddSingleton<IConnectionStringProvider, ConnectionStringProvider>();
 builder.Services.AddScoped<IDbContextFactory, DbContextFactory>();
@@ -139,8 +144,28 @@ builder.Services.AddSwaggerGen(c =>
         }
     });
 });
+//// Configure CORS
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAngularApp", policy =>
+//    {
+//        policy.WithOrigins("http://localhost:4200") // Allow your Angular app
+//              .AllowAnyHeader()
+//              .AllowAnyMethod()
+//              .AllowCredentials(); // If your API uses cookies or authentication
+//    });
+//});
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
-
+app.UseCors("AllowAll");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -151,11 +176,12 @@ if (app.Environment.IsDevelopment())
 app.UseStaticFiles();
 
 app.UseHttpsRedirection();
-app.UseMiddleware<ClientConnectionMiddleware>();
 
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.UseMiddleware<ClientConnectionMiddleware>();
 
 app.MapControllers();
 

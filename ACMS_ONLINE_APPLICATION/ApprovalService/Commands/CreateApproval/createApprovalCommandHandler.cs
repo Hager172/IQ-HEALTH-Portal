@@ -49,15 +49,14 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
 
 
+               
+				//if (request == null)
+				//    throw new Exception("Your Request is Not Valid");
 
+				//if (request.Services == null)
+				//    throw new Exception("Your Request 0 Service !!");
 
-                //if (request == null)
-                //    throw new Exception("Your Request is Not Valid");
-
-                //if (request.Services == null)
-                //    throw new Exception("Your Request 0 Service !!");
-
-                var approval = ACMS_ONLINE_DOMAIN.Approval.Entities.Approval.Create(request.ClaimDate);
+				var approval = ACMS_ONLINE_DOMAIN.Approval.Entities.Approval.Create(request.ClaimDate);
 
                 // set approval Id 
                 approval.SetApprovalId(GenerateApprovalId());
@@ -68,7 +67,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                     approval.AddService(ACMS_ONLINE_DOMAIN.Approval.Entities.ApprovalService.Create(
 
                         approvalId: approval.ApprovalId,
-                        itemSerial: approval.Services.Count() + 1,
+                        itemSerial: approval.Services1.Count() + 1,
                         isChronic: item.isChronic,
                         serviceId: item.ServiceId,
                         price: item.Price,

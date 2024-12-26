@@ -8,7 +8,7 @@ namespace ACMS_ONLINE_DOMAIN.Medication.Entities
 {
     public class Diagnose
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public int Category { get; set; }
         public int CareItem { get; set; }

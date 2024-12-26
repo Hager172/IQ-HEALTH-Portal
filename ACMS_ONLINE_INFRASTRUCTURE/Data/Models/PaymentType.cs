@@ -9,7 +9,5 @@ public partial class PaymentType
 
     public string? PaymentType1 { get; set; }
 
-    public virtual ICollection<Bill> Bills { get; set; } = new List<Bill>();
-
     public virtual ICollection<ContractInstallment> ContractInstallments { get; set; } = new List<ContractInstallment>();
 }

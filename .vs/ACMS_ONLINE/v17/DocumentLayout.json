@@ -1,12 +1,69 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GetMemberByIdDto.cs",
+              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T13:58:12.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GetMemberDetailsDto.cs",
+              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
+              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAzwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T13:58:06.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GetMemberDetailsHandler.cs",
+              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T13:57:53.303Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

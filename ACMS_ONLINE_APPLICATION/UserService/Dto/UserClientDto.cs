@@ -11,6 +11,5 @@ namespace ACMS_ONLINE_APPLICATION.User.Dto
         public string ClientName { get; set; }
         public bool IsDefault { get; set; }
 
-
     }
 }

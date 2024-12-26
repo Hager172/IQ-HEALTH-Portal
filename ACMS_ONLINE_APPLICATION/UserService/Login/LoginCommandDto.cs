@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ACMS_ONLINE_APPLICATION.User.Login
 {
-    public class LoginCommandDto : IRequest<LoginResponseDto>
+    public class LoginCommandDto : IRequest<ServiceResponse<LoginResponseDto>>
     {
         public string UserName { get; set; }
         public string Password { get; set; }

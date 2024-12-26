@@ -1,8 +1,10 @@
 ﻿using ACMS_ONLINE_INFRASTRUCTURE.Data;
 using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
 using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
+using ACMS_ONLINE_INFRASTRUCTURE.Repositories;
 using ACMS_ONLINE_INFRASTRUCTURE.Services;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -15,79 +17,103 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-
         private readonly IDbContextFactory _dbContextFactory;
         private ApplicationDbContext _dbContext;
         private readonly IConnectionStringProvider _connectionStringProvider;
-
         private readonly IHttpContextAccessor _contextAccessor;
+        private readonly IdentityContext _dbIdentityContext;
 
-
-
+        // Repositories for ApplicationDbContext
         public IBaseRepository<Member> MemberRepository { get; set; }
         public IBaseRepository<Approval> ApprovalRepository { get; set; }
-        public IBaseRepository<OnlineClient> OnlineClientRepository { get; set; }
-        public IBaseRepository<OnlineUserClient> OnlineUserClientRepository { get; set; }
+        public IBaseRepository<ApprovalsArchive> ApprovalsArchiveRepository { get; set; }
+        public IClaimsTypeRepository ClaimsTypeRepository { get; set; }
+        // Repositories for IdentityContext
+
+        public IBaseRepository<Identity.Entities.OnlineClient> OnlineClientRepository { get ; set ; }
+        public IBaseRepository<Identity.Entities.OnlineUserClient> OnlineUserClientRepository { get ; set ; }
+        public IBaseRepository<Identity.Entities.Page> PagesRepository { get; set; }
+        public IBaseRepository<Identity.Entities.Privilege> PrivilegesRepository { get; set; }
+        public IBaseRepository<OnlineSetting> OnlineSettingRepository { get; set; }
 
 
+        public ContractServicesRepository ContractServiceRepository { get; set; } 
 
-        public UnitOfWork(IDbContextFactory dbContextFactory , IConnectionStringProvider connectionStringProvider, IHttpContextAccessor contextAccessor) 
+        public UnitOfWork(IDbContextFactory dbContextFactory, IdentityContext identityContext,
+                          IConnectionStringProvider connectionStringProvider, IHttpContextAccessor contextAccessor)
         {
-
+            _dbIdentityContext = identityContext;
             _dbContextFactory = dbContextFactory;
             _connectionStringProvider = connectionStringProvider;
             _contextAccessor = contextAccessor;
-            InitializeRepositories(GetDefaultConnectionString());
-            
+
+            // Initialize both contexts and repositories
+            InitializeApplicationDbContext(GetDefaultConnectionString());
+            InitializeIdentityDbContext();
         }
 
-        private void InitializeRepositories(string connectionString)
+        // Initialize ApplicationDbContext and related repositories
+        private void InitializeApplicationDbContext(string connectionString)
         {
-            
             _dbContext = _dbContextFactory.CreateDbContext(connectionString);
 
             MemberRepository = new BaseRepository<Member>(_dbContext);
             ApprovalRepository = new BaseRepository<Approval>(_dbContext);
-            OnlineClientRepository = new BaseRepository<OnlineClient>(_dbContext);
-            OnlineUserClientRepository = new BaseRepository<OnlineUserClient>(_dbContext);
+            ContractServiceRepository = new ContractServicesRepository(_dbContext);
+            ClaimsTypeRepository = new ClaimsTypeRepository(_dbContext);
+            ApprovalsArchiveRepository = new BaseRepository<ApprovalsArchive>(_dbContext);
+            OnlineSettingRepository =new BaseRepository<OnlineSetting>(_dbContext);
         }
 
+        // Initialize IdentityContext and related repositories
+        private void InitializeIdentityDbContext()
+        {
+            OnlineClientRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities. OnlineClient>(_dbIdentityContext);
+            OnlineUserClientRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.OnlineUserClient>(_dbIdentityContext);
+            PagesRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.Page>(_dbIdentityContext);
+            PrivilegesRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.Privilege>(_dbIdentityContext);
+        }
+
+        // Update connection string for ApplicationDbContext
         public void SetConnectionString(string clientId)
         {
-            
             var connectionString = _connectionStringProvider.GetConnectionString(clientId);
-
-            
-            InitializeRepositories(connectionString);
+            InitializeApplicationDbContext(connectionString);
         }
 
-
-
-
-        public string getCurrentConnectionString()
-        {
-            var ClientId = _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "ClientId")?.Value;
-            return getConnectionStringByClinetId(ClientId);
-        }
-
-        public string getConnectionStringByClinetId(string clientId ="2")
-        {
-            return _connectionStringProvider.GetConnectionString(clientId);
-        }
+     
+        
 
         public string GetDefaultConnectionString()
         {
             return _connectionStringProvider.GetDefaultConnectionString();
         }
-       
-        public int Save ()
+
+        // Save changes for both contexts
+        public int Save()
         {
-            return _dbContext.SaveChanges();
+            var appContextChanges = _dbContext.SaveChanges();
+            var identityContextChanges = _dbIdentityContext.SaveChanges();
+            return appContextChanges + identityContextChanges;
         }
 
         public void Dispose()
         {
-            _dbContext.Dispose();
+            _dbContext?.Dispose();
+            _dbIdentityContext?.Dispose();
+        }
+
+       
+
+        public string getCurrentConnectionString()
+        {
+            var clientId = _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "ClientId")?.Value;
+            return getConnectionStringByClinetId(clientId);
+        }
+        public string getConnectionStringByClinetId(string clientId = "2")
+        {
+            return _connectionStringProvider.GetConnectionString(clientId);
         }
     }
+
 }
