@@ -20,7 +20,7 @@ namespace ACMS_ONLINE_API.Controllers
             _mediator = mediator;
         }
         
-        [HttpGet("{id}", Name = "GetMemberById")]
+        [HttpGet("GetMemberById", Name = "GetMemberById")]
         public async Task<ActionResult<GetMemberDetailsDto>> GetPostById([FromQuery] GetMemberByIdDto query)
         {
             var GetMemberByIdDto = query;

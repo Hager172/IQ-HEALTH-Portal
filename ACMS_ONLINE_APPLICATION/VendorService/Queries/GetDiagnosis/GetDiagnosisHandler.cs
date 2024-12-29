@@ -46,7 +46,7 @@ namespace ACMS_ONLINE_APPLICATION.VendorService.Queries.GetDiagnosis
                 using (AdoHelper adoHelper = new(connectionString))
                 {
                     string listOfVendorClaimsQuery = $@"
-                SELECT id, name, type FROM online_diagnosis";
+                        SELECT id, name, type FROM online_diagnosis";
 
                     var result = adoHelper.ExecuteQueryList(listOfVendorClaimsQuery, reader =>
                     {

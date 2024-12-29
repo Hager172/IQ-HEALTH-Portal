@@ -18,7 +18,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
 
         //public string MemberGender { get; set; } = null!;
 
-        public DateTime? MemberBirthday { get; set; }
+        public DateOnly? MemberBirthday { get; set; }
 
         //public string? MemberNationalId { get; set; }
 
@@ -102,6 +102,10 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
         public string? ContractCode { get; set; }
         public string? CustomerName { get; set; }
 
+        public int? ConsCopay { get; set; }
+        public int? ConsMedItemId { get; set; }
+
+        
         public List<ApprovalDto> InternalClaims { get; set; } = new List<ApprovalDto>();
     }
 
@@ -119,7 +123,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
         public string? ServiceName { get; set; }
         public int item_serial { get; set; }
         public double qty { get; set; }
-        public double price { get; set; }
+        public double? price { get; set; }
     }
 
 }

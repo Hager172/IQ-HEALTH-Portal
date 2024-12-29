@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData;
+using ACMS_ONLINE_APPLICATION.UserService.Command.RefreshToken;
 
 namespace ACMS_ONLINE_API.Controllers
 {
@@ -64,48 +65,57 @@ namespace ACMS_ONLINE_API.Controllers
             var GetuserDataQuery = new GetuserDataQuery() {  };
             return Ok(await _mediator.Send(GetuserDataQuery));
         }
-        public class RegisterUserRequest
+        //[Authorize]
+        [HttpPost("RefreshToken", Name = "RefreshToken")]
+        public async Task<ActionResult<ServiceResponse<GetApprovalDetailsQuery>>> RefreshToken(RefreshTokenCommandDto refreshToken)
         {
-            public string Email { get; set; }
-            public string Password { get; set; }
+            var RefreshTokenCommandDto = new RefreshTokenCommandDto() { RefreshToken = refreshToken.RefreshToken.Trim() };
+            return Ok(await _mediator.Send(RefreshTokenCommandDto));
         }
 
+            
+        //public class RegisterUserRequest
+        //{
+        //    public string Email { get; set; }
+        //    public string Password { get; set; }
+        //}
 
-        [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
-        {
-            if (request == null || string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
-            {
-                return BadRequest("Email and password are required.");
-            }
 
-            // Check if the email already exists
-            var existingUser = await _userManager.FindByEmailAsync(request.Email);
-            if (existingUser != null)
-            {
-                return BadRequest("Email is already taken.");
-            }
+        //[HttpPost("register")]
+        //public async Task<IActionResult> Register([FromBody] RegisterUserRequest request)
+        //{
+        //    if (request == null || string.IsNullOrWhiteSpace(request.Email) || string.IsNullOrWhiteSpace(request.Password))
+        //    {
+        //        return BadRequest("Email and password are required.");
+        //    }
 
-            // Create a new user object
-            var newUser = new ApplicationUser
-            {
-                UserName = request.Email,
-                Email = request.Email
-            };
+        //    // Check if the email already exists
+        //    var existingUser = await _userManager.FindByEmailAsync(request.Email);
+        //    if (existingUser != null)
+        //    {
+        //        return BadRequest("Email is already taken.");
+        //    }
 
-            // Create the user in the database with the provided password
-            var result = await _userManager.CreateAsync(newUser, request.Password);
+        //    // Create a new user object
+        //    var newUser = new ApplicationUser
+        //    {
+        //        UserName = request.Email,
+        //        Email = request.Email
+        //    };
 
-            if (!result.Succeeded)
-            {
-                // Return validation errors if any
-                return BadRequest(result.Errors);
-            }
+        //    // Create the user in the database with the provided password
+        //    var result = await _userManager.CreateAsync(newUser, request.Password);
 
-            // Optionally, you can sign in the user after creating them
-            // await _signInManager.SignInAsync(newUser, isPersistent: false);
+        //    if (!result.Succeeded)
+        //    {
+        //        // Return validation errors if any
+        //        return BadRequest(result.Errors);
+        //    }
 
-            return Ok("User created successfully.");
-        }
+        //    // Optionally, you can sign in the user after creating them
+        //    // await _signInManager.SignInAsync(newUser, isPersistent: false);
+
+        //    return Ok("User created successfully.");
+        //}
     }
 }

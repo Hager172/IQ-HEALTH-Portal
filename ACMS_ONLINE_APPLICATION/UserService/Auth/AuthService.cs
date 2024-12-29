@@ -71,7 +71,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
                 _configuration["JwtSetting:Issuer"],
                 _configuration["JwtSetting:Issuer"],
                 claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.Now.AddMinutes(_jwt.DurationInDays),
                 signingCredentials: creds);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
@@ -119,28 +119,28 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
                 issuer: _jwt.Issuer,
                 audience: _jwt.Audience,
                 claims: claims,
-                expires: DateTime.UtcNow.AddDays(_jwt.DurationInDays), // DateTime.UtcNow.AddSeconds(60),  //
+                expires:DateTime.UtcNow.AddDays(_jwt.DurationInDays), // DateTime.UtcNow.AddSeconds(60),  //  DateTime.UtcNow.AddMinutes(1), //
             signingCredentials: signingCredentials);
             return jwtSecurityToken;
         }
 
 
-        //private RefreshToken GenerateRefreshToken()
-        //{
-        //    var randomNumber = new byte[32];
+        public RefreshToken GenerateRefreshToken()
+        {
+            var randomNumber = new byte[32];
 
-        //    using var generator = new RNGCryptoServiceProvider();
+            using var generator = new RNGCryptoServiceProvider();
 
-        //    generator.GetBytes(randomNumber);
+            generator.GetBytes(randomNumber);
 
-        //    return new RefreshToken
-        //    {
-        //        Token = Convert.ToBase64String(randomNumber),
-        //        ExpiresOn = DateTime.UtcNow.AddDays(30),
-        //        CreatedOn = DateTime.UtcNow
-        //    };
-        //}
-       
+            return new RefreshToken
+            {
+                Token = Convert.ToBase64String(randomNumber),
+                ExpiresOn = DateTime.UtcNow.AddDays(_jwt.DurationInDays * 3),
+                CreatedOn = DateTime.UtcNow
+            };
+        }
+
         public string GetUserCurrentClient()
         {
             try

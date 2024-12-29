@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Intrinsics.X86;
 
 namespace ACMS_ONLINE_APPLICATION.User.Login
 {
@@ -22,11 +23,13 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IAuthService _authService;
         private readonly IUnitOfWork _unitOfWork;
+        //private readonly JWT _jwt;
 
         public LoginCommandHandler(UserManager<ApplicationUser> userManager,
                                    SignInManager<ApplicationUser> signInManager,
                                    IAuthService authService,
                                    IUnitOfWork unitOfWork
+                                   //, JWT jwt
                                     )
 
         {
@@ -34,6 +37,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
             _signInManager = signInManager;
             _authService = authService;
             _unitOfWork = unitOfWork;
+            //_jwt = jwt;
         }
         public async Task<ServiceResponse<LoginResponseDto>> Handle(LoginCommandDto request, CancellationToken cancellationToken)
         {
@@ -60,7 +64,9 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                     // Generate JWT token
                     var token = await _authService.CreateJwtToken(user, client);
                     // var clients = await _authService.GetUserClientList(user.Id);
-
+                    var refreshToken = _authService.GenerateRefreshToken();
+                    user.RefreshTokens?.Add(refreshToken);
+                    await _userManager.UpdateAsync(user);
 
                     var loginResponse = new LoginResponseDto()
                     {
@@ -70,9 +76,9 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                         BranchId = client.BranchId.ToString(),
                         IsAuthenticated = true,
                         AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
-
-
-
+                        ExpiresIn =token.ValidTo, //DateTime.UtcNow.AddDays(_jwt.DurationInDays),
+                        RefreshToken = refreshToken.Token,
+                        RefreshTokenExpiration = refreshToken.ExpiresOn,
                         //Clients = _authService.g
                     };
 

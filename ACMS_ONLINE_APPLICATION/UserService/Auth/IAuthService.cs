@@ -15,7 +15,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
     {
         string GenerateToken(ApplicationUser user);
 
-        //string GenerateRefreshToken(IdentityUser user);
+        RefreshToken GenerateRefreshToken();
         public string GetUserCurrentClient();
         Task<JwtSecurityToken> CreateJwtToken(ApplicationUser user, OnlineUserClient? userClient);
         public Task<List<UserClientDto>> GetUserClientList (string userId);

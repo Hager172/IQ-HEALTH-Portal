@@ -54,3 +54,15 @@ D:\repos\MASHREQ\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOM
 D:\repos\MASHREQ\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\refint\ACMS_ONLINE_DOMAIN.dll
 D:\repos\MASHREQ\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
 D:\repos\MASHREQ\ACMS_ONLINE\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ref\ACMS_ONLINE_DOMAIN.dll
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.deps.json
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.GeneratedMSBuildEditorConfig.editorconfig
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.AssemblyInfoInputs.cache
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.AssemblyInfo.cs
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.csproj.CoreCompileInputs.cache
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.sourcelink.json
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\refint\ACMS_ONLINE_DOMAIN.dll
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb
+D:\ONLINE\BackEnd\IQ-Health-portal\ACMS_ONLINE_DOMAIN\obj\Debug\net8.0\ref\ACMS_ONLINE_DOMAIN.dll

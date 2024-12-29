@@ -15,8 +15,8 @@ namespace ACMS_ONLINE_APPLICATION.Profiles
         {
             // Mapping from Domain model to Data model
             CreateMap<ACMS_ONLINE_DOMAIN.Approval.Entities.Approval, ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Approval >()
-                .ForMember(dest => dest.ApprovalServices, opt => opt.MapFrom(src => src.Services))
-                .ForMember(dest => dest.Diagnoses, opt => opt.MapFrom(src => src.Diagnoses));
+                .ForMember(dest => dest.ApprovalServices, opt => opt.MapFrom(src => src.Services1))
+                .ForMember(dest => dest.Diagnoses, opt => opt.MapFrom(src => src.Diagnoses1));
 
             CreateMap< ACMS_ONLINE_DOMAIN.Approval.Entities.ApprovalService, ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ApprovalService >();
             CreateMap<ACMS_ONLINE_DOMAIN.Medication.Entities.Diagnose, ACMS_ONLINE_INFRASTRUCTURE.Data.Models.OnlineDiagnosis >();

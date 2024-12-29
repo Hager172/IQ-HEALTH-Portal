@@ -21,11 +21,11 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Repositories
         }
 
         
-       public async Task<List<ContractService>> GetVendorServiceByClaimType(string Type ,  string VendorId)
-       {
+        public async Task<List<ContractService>> GetVendorServiceByClaimType(string Type ,  string VendorId)
+        {
 
             //VendorId = "Hp00536";
-            var Sqltype = Type == "InPatient" ? "كشف" : "";
+            var Sqltype = Type == "OutPatient" ? "كشف" : "";
             var services = new List<ContractService>();
             using (AdoHelper adoHelper = new AdoHelper (_context.Database.GetConnectionString()))
             {

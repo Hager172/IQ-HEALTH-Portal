@@ -927,12 +927,18 @@
           "Microsoft.AspNetCore.Identity": "2.2.0"
         },
         "runtime": {
-          "ACMS_ONLINE_APPLICATION.dll": {}
+          "ACMS_ONLINE_APPLICATION.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "ACMS_ONLINE_DOMAIN/1.0.0": {
         "runtime": {
-          "ACMS_ONLINE_DOMAIN.dll": {}
+          "ACMS_ONLINE_DOMAIN.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "ACMS_ONLINE_INFRASTRUCTURE/1.0.0": {
@@ -943,7 +949,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.0"
         },
         "runtime": {
-          "ACMS_ONLINE_INFRASTRUCTURE.dll": {}
+          "ACMS_ONLINE_INFRASTRUCTURE.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

@@ -62,6 +62,8 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                 approval.SetApprovalId(GenerateApprovalId());
 
 
+
+
                 foreach (var item in request.Services)
                 {
                     approval.AddService(ACMS_ONLINE_DOMAIN.Approval.Entities.ApprovalService.Create(
@@ -120,9 +122,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
 
                 return approvalId + 1;
-            }
-
-            
+            } 
         }
     }
 }
