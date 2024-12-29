@@ -3137,23 +3137,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DB\\.nuget\\packages\\": {},
+    "C:\\Users\\Abdelrahman\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj",
+      "projectUniqueName": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj",
       "projectName": "ACMS_ONLINE_MAPPING",
-      "projectPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj",
-      "packagesPath": "C:\\Users\\DB\\.nuget\\packages\\",
-      "outputPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_MAPPING\\obj\\",
+      "projectPath": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj",
+      "packagesPath": "C:\\Users\\Abdelrahman\\.nuget\\packages\\",
+      "outputPath": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_MAPPING\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\DB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Abdelrahman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3162,18 +3162,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_DOMAIN\\ACMS_ONLINE_DOMAIN.csproj": {
-              "projectPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_DOMAIN\\ACMS_ONLINE_DOMAIN.csproj"
+            "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_DOMAIN\\ACMS_ONLINE_DOMAIN.csproj": {
+              "projectPath": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_DOMAIN\\ACMS_ONLINE_DOMAIN.csproj"
             },
-            "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {
-              "projectPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj"
+            "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {
+              "projectPath": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj"
             }
           }
         }
@@ -3186,8 +3185,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -3214,7 +3214,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

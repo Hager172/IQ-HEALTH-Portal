@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "BE6WmQFKE/gUOUV7716RoQwRW/hY4HzhXyWmev5bhl8=",
+  "Hash": "qLPnV9Mifz7ZF5yAEhYN+UGlg9Jfj0KKrxKfEEgDJl4=",
   "Source": "ACMS_ONLINE_API",
   "BasePath": "_content/ACMS_ONLINE_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }
