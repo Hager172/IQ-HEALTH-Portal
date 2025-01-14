@@ -3,6 +3,7 @@
   "WorkspaceRootPath": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\",
   "Documents": [
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -37,12 +38,25 @@
     {
       "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_infrastructure\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\unitofwork\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\userservice\\login\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\userservice\\login\\logincommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|solutionrelative:acms_online_api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|solutionrelative:acms_online_api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
     },
     {
       "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\userservice\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\userservice\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\vendorservice\\queries\\getdiagnosis\\getdiagnosishandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\vendorservice\\queries\\getdiagnosis\\getdiagnosishandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -63,10 +77,13 @@
       "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\repositories\\baserepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+=======
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
       "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -137,18 +154,42 @@
     {
       "AbsoluteMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|solutionrelative:acms_online_api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+=======
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
     },
     {
       "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_infrastructure\\identity\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\identity\\entities\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
+=======
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\userservice\\auth\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\userservice\\auth\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
       "AbsoluteMoniker": "D:0:0:{CC560500-C207-4ECD-926C-814B35A7F4EE}|ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_mapping\\profiles\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CC560500-C207-4ECD-926C-814B35A7F4EE}|ACMS_ONLINE_MAPPING\\ACMS_ONLINE_MAPPING.csproj|solutionrelative:acms_online_mapping\\profiles\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_infrastructure\\migrations\\20241229134334_refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\migrations\\20241229134334_refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+=======
+      "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_infrastructure\\identity\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\identity\\entities\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\online\\backend\\iq-health-portal\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
     }
   ],
   "DocumentGroupContainers": [
@@ -158,10 +199,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
+<<<<<<< HEAD
           "SelectedChildIndex": 0,
+=======
+          "SelectedChildIndex": 5,
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_API\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_API\\appsettings.Development.json",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_API\\appsettings.Development.json",
+              "RelativeToolTip": "ACMS_ONLINE_API\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-12-29T14:07:15.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 0,
               "Title": "GetMemberDetailsHandler.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
@@ -171,10 +234,48 @@
               "ViewState": "AgIAAGkAAAAAAAAAAAAAAHUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T13:57:53.303Z",
+=======
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_API\\Program.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_API\\Program.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_API\\Program.cs",
+              "RelativeToolTip": "ACMS_ONLINE_API\\Program.cs",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAAAKYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:56:21.424Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Auth\\IAuthService.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\UserService\\Auth\\IAuthService.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Auth\\IAuthService.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\UserService\\Auth\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:48:27.134Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Auth\\AuthService.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\UserService\\Auth\\AuthService.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Auth\\AuthService.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\UserService\\Auth\\AuthService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAjwIgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:47:47.848Z",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 3,
               "Title": "MemberController.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_API\\Controllers\\MemberController.cs",
@@ -223,11 +324,23 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-13T13:01:16.227Z",
+=======
+              "DocumentIndex": 0,
+              "Title": "LoginCommandHandler.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Login\\LoginCommandHandler.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\UserService\\Login\\LoginCommandHandler.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\UserService\\Login\\LoginCommandHandler.cs*",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\UserService\\Login\\LoginCommandHandler.cs*",
+              "ViewState": "AgIAADgAAAAAAAAAAAAWwE4AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:46:49.21Z",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+<<<<<<< HEAD
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Interfaces\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Interfaces\\IUnitOfWork.cs",
@@ -236,10 +349,21 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T10:17:27.701Z",
+=======
+              "Title": "20241229134334_refreshToken.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Migrations\\20241229134334_refreshToken.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:43:34.839Z",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 2,
               "Title": "ClientConnectionMiddleware.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\MeddleWare\\ClientConnectionMiddleware.cs",
@@ -249,10 +373,22 @@
               "ViewState": "AgIAADsAAAAAAAAAAAAAAE8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T14:00:39.476Z",
+=======
+              "DocumentIndex": 8,
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_MAPPING\\Profiles\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_MAPPING\\Profiles\\AutoMapperProfile.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_MAPPING\\Profiles\\AutoMapperProfile.cs",
+              "RelativeToolTip": "ACMS_ONLINE_MAPPING\\Profiles\\AutoMapperProfile.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:42:40.036Z",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 1,
               "Title": "MemberRepository.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Repositories\\MemberRepository.cs",
@@ -262,17 +398,61 @@
               "ViewState": "AgIAADIAAAAAAAAAAAAqwDYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-12T09:21:45.979Z",
+=======
+              "DocumentIndex": 6,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\RefreshToken.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\RefreshToken.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:22:38.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\ApplicationUser.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\ApplicationUser.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Identity\\Entities\\ApplicationUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-29T13:18:05.558Z",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+<<<<<<< HEAD
+=======
+              "Title": "GetMemberByIdDto.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T13:58:12.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "Title": "GetMemberDetailsDto.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
               "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
               "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
               "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
+<<<<<<< HEAD
               "ViewState": "AgIAAGkAAAAAAAAAAAAowH8AAAAAAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-17T13:58:06.376Z",
               "EditorCaption": ""
@@ -280,6 +460,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 11,
+<<<<<<< HEAD
               "Title": "AdoHelper.cs",
               "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Utility\\Helpers\\AdoHelper.cs",
               "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Utility\\Helpers\\AdoHelper.cs",
@@ -620,6 +801,17 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-29T13:22:38.046Z"
+=======
+              "Title": "GetMemberDetailsHandler.cs",
+              "DocumentMoniker": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "ToolTip": "D:\\ONLINE\\BackEnd\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T13:57:53.303Z",
+              "EditorCaption": ""
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
             }
           ]
         }

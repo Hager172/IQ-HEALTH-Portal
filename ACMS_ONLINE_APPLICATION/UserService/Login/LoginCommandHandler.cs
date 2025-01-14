@@ -76,7 +76,11 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                         BranchId = client.BranchId.ToString(),
                         IsAuthenticated = true,
                         AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
+<<<<<<< HEAD
                         ExpiresIn =token.ValidTo, //DateTime.UtcNow.AddDays(_jwt.DurationInDays),
+=======
+                        //ExpiresIn = DateTime.UtcNow.AddDays(_jwt.DurationInDays),
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
                         RefreshToken = refreshToken.Token,
                         RefreshTokenExpiration = refreshToken.ExpiresOn,
                         //Clients = _authService.g

@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ACMS_ONLINE_INFRASTRUCTURE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12d75330ac2de508d884b6fea5e4758d40da5f8a")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5003e7cba98db0176092b21581cdadf7861e537")]
+>>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
 [assembly: System.Reflection.AssemblyProductAttribute("ACMS_ONLINE_INFRASTRUCTURE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ACMS_ONLINE_INFRASTRUCTURE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
