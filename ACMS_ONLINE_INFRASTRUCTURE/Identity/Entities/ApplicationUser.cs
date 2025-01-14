@@ -9,6 +9,6 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-
+        public string? PathImage { get; set; }
     }
 }

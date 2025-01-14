@@ -57,9 +57,10 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                 if (result.Succeeded)
                 {
                     var client = await _unitOfWork.OnlineUserClientRepository.FindAsync(x => x.UserId == user.Id && x.IsDefault == true);
+                    
                     // Generate JWT token
                     var token = await _authService.CreateJwtToken(user, client);
-                    // var clients = await _authService.GetUserClientList(user.Id);
+                   
 
 
                     var loginResponse = new LoginResponseDto()
@@ -70,8 +71,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                         BranchId = client.BranchId.ToString(),
                         IsAuthenticated = true,
                         AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
-
-
+                                               
 
                         //Clients = _authService.g
                     };

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 {
-    public class CreateApprovalCommandRespond
+    public class CreateApprovalResponse
     {
-        public string ApprovalId { get; set; }
+        public long ApprovalId { get; set; }
         public bool IsSuccess { get; set; } = false;
     }
 }

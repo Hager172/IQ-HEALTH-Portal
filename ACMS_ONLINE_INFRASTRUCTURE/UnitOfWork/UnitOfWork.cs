@@ -25,9 +25,10 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
 
         // Repositories for ApplicationDbContext
         public IBaseRepository<Member> MemberRepository { get; set; }
-        public IBaseRepository<Approval> ApprovalRepository { get; set; }
+        //public IBaseRepository<Approval> ApprovalRepository { get; set; }
         public IBaseRepository<ApprovalsArchive> ApprovalsArchiveRepository { get; set; }
         public IClaimsTypeRepository ClaimsTypeRepository { get; set; }
+        public  IRepApproval ApprovalRepository { get; set; }
         // Repositories for IdentityContext
 
         public IBaseRepository<Identity.Entities.OnlineClient> OnlineClientRepository { get ; set ; }
@@ -35,9 +36,11 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
         public IBaseRepository<Identity.Entities.Page> PagesRepository { get; set; }
         public IBaseRepository<Identity.Entities.Privilege> PrivilegesRepository { get; set; }
         public IBaseRepository<OnlineSetting> OnlineSettingRepository { get; set; }
+        public IBaseRepository<OnlineDiagnosis> OnlinediagnosisRepository { get; set; }
 
 
-        public ContractServicesRepository ContractServiceRepository { get; set; } 
+        public ContractServicesRepository ContractServiceRepository { get; set; }
+ 
 
         public UnitOfWork(IDbContextFactory dbContextFactory, IdentityContext identityContext,
                           IConnectionStringProvider connectionStringProvider, IHttpContextAccessor contextAccessor)
@@ -58,11 +61,14 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
             _dbContext = _dbContextFactory.CreateDbContext(connectionString);
 
             MemberRepository = new BaseRepository<Member>(_dbContext);
-            ApprovalRepository = new BaseRepository<Approval>(_dbContext);
+            //ApprovalRepository = new BaseRepository<Approval>(_dbContext);
+            ApprovalRepository = new RepApproval(_dbContext);
             ContractServiceRepository = new ContractServicesRepository(_dbContext);
             ClaimsTypeRepository = new ClaimsTypeRepository(_dbContext);
             ApprovalsArchiveRepository = new BaseRepository<ApprovalsArchive>(_dbContext);
             OnlineSettingRepository =new BaseRepository<OnlineSetting>(_dbContext);
+            OnlinediagnosisRepository = new BaseRepository<OnlineDiagnosis>(_dbContext);
+
         }
 
         // Initialize IdentityContext and related repositories

@@ -1,18 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\",
+  "WorkspaceRootPath": "D:\\Project\\IQ-Health-portal\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\project\\iq-health-portal\\acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberbyiddto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\project\\iq-health-portal\\acms_online_infrastructure\\services\\dbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\services\\dbcontextfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\repos\\mashreq\\acms_online\\acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\memberservice\\queries\\getmemberbyid\\getmemberdetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\project\\iq-health-portal\\acms_online_infrastructure\\services\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\services\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\project\\iq-health-portal\\acms_online_infrastructure\\meddleware\\clientconnectionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\meddleware\\clientconnectionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\project\\iq-health-portal\\acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|d:\\project\\iq-health-portal\\acms_online_api\\controllers\\approvalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E033B48-7E7C-40DA-B2F9-3B3D44190878}|ACMS_ONLINE_API\\ACMS_ONLINE_API.csproj|solutionrelative:acms_online_api\\controllers\\approvalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\project\\iq-health-portal\\acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\approvalservice\\commands\\createapproval\\createapprovalcommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|d:\\project\\iq-health-portal\\acms_online_application\\profiles\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0B956B2E-D8DF-411E-A52B-6135C4AC5BA9}|ACMS_ONLINE_APPLICATION\\ACMS_ONLINE_APPLICATION.csproj|solutionrelative:acms_online_application\\profiles\\automapperprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|d:\\project\\iq-health-portal\\acms_online_infrastructure\\repositories\\repapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{630F598B-7813-4539-92F0-3888A9C823A4}|ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj|solutionrelative:acms_online_infrastructure\\repositories\\repapproval.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +46,124 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetMemberByIdDto.cs",
-              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
-              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
-              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
-              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberByIdDto.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 7,
+              "Title": "AutoMapperProfile.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\Profiles\\AutoMapperProfile.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\Profiles\\AutoMapperProfile.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\Profiles\\AutoMapperProfile.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\Profiles\\AutoMapperProfile.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T13:58:12.493Z"
+              "WhenOpened": "2025-01-13T09:58:47.749Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetMemberDetailsDto.cs",
-              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
-              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
-              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
-              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsDto.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAzwBMAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "DbContextFactory.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Services\\DbContextFactory.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Services\\DbContextFactory.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Services\\DbContextFactory.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Services\\DbContextFactory.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T13:58:06.376Z",
+              "WhenOpened": "2025-01-13T09:42:23.165Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GetMemberDetailsHandler.cs",
-              "DocumentMoniker": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
-              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
-              "ToolTip": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
-              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\MemberService\\Queries\\GetMemberById\\GetMemberDetailsHandler.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "ConnectionStringProvider.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Services\\ConnectionStringProvider.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Services\\ConnectionStringProvider.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Services\\ConnectionStringProvider.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Services\\ConnectionStringProvider.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T13:57:53.303Z"
+              "WhenOpened": "2025-01-13T09:42:23.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ClientConnectionMiddleware.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\MeddleWare\\ClientConnectionMiddleware.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\MeddleWare\\ClientConnectionMiddleware.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\MeddleWare\\ClientConnectionMiddleware.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\MeddleWare\\ClientConnectionMiddleware.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAwwEAAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T09:42:23.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ApprovalController.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_API\\Controllers\\ApprovalController.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_API\\Controllers\\ApprovalController.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_API\\Controllers\\ApprovalController.cs",
+              "RelativeToolTip": "ACMS_ONLINE_API\\Controllers\\ApprovalController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAYwCUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T09:42:23.192Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RepApproval.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Repositories\\RepApproval.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_INFRASTRUCTURE\\Repositories\\RepApproval.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\Repositories\\RepApproval.cs",
+              "RelativeToolTip": "ACMS_ONLINE_INFRASTRUCTURE\\Repositories\\RepApproval.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowDQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T09:42:23.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateApprovalCommandValidator.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\CreateApprovalCommandValidator.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\CreateApprovalCommandValidator.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\CreateApprovalCommandValidator.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\CreateApprovalCommandValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T13:07:53.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "createApprovalCommand.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommand.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommand.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommand.cs*",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommand.cs*",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAUwFwAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-12T11:42:50.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "createApprovalCommandHandler.cs",
+              "DocumentMoniker": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommandHandler.cs",
+              "RelativeDocumentMoniker": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommandHandler.cs",
+              "ToolTip": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommandHandler.cs",
+              "RelativeToolTip": "ACMS_ONLINE_APPLICATION\\ApprovalService\\Commands\\CreateApproval\\createApprovalCommandHandler.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAwwL0AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-09T09:41:02.692Z",
+              "EditorCaption": ""
             }
           ]
         }

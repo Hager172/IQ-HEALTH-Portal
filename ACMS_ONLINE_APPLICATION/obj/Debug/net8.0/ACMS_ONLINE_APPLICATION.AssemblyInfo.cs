@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ACMS_ONLINE_APPLICATION")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5c1f91728eaabe95860a00933bb10bb6dc5547a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5003e7cba98db0176092b21581cdadf7861e537")]
 [assembly: System.Reflection.AssemblyProductAttribute("ACMS_ONLINE_APPLICATION")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ACMS_ONLINE_APPLICATION")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

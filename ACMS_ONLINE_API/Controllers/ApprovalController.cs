@@ -2,7 +2,8 @@
 using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.ChangeStatusApproval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetApproval;
-
+using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetApprovalStats;
+using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
 using  ACMS_ONLINE_INFRASTRUCTURE.Utility.ResponseModel;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
@@ -33,7 +34,7 @@ namespace ACMS_ONLINE_API.Controllers
 
 
         [HttpPost("CreateApproval", Name = "CreateApproval")]
-        public async Task<ActionResult<ServiceResponse<CreateApprovalCommandRespond>>> CreateApproval([FromBody] createApprovalCommand command)
+        public async Task<ActionResult<ServiceResponse<CreateApprovalResponse>>> CreateApproval([FromBody] createApprovalCommand command)
         {
             var GetApprovalQuery = command;
             return Ok(await _mediator.Send(GetApprovalQuery));
@@ -43,6 +44,14 @@ namespace ACMS_ONLINE_API.Controllers
         {
             var ChangeStatusApprovalCommand = command;
             return Ok(await _mediator.Send(ChangeStatusApprovalCommand));
+        }
+
+
+        [HttpGet("GetApprovalStats")]
+        public async Task<ActionResult<GetApprovalStatsResponse>> GetApprovalStats()
+        {
+            var GetApprovalStatsQuery = new GetApprovalStatsQuery();
+            return Ok(await _mediator.Send(GetApprovalStatsQuery));
         }
 
 

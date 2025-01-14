@@ -18,10 +18,12 @@ using ACMS_ONLINE_INFRASTRUCTURE.Utility.Helpers;
 using ACMS_ONLINE_APPLICATION.User.GetUserClients;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork;
+using Azure.Core;
 
 namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 {
-    public class createApprovalCommandHandler :IRequestHandler<createApprovalCommand, ServiceResponse<CreateApprovalCommandRespond>>
+    public class createApprovalCommandHandler :IRequestHandler<createApprovalCommand, ServiceResponse<CreateApprovalResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -32,13 +34,96 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
             _mapper = mapper;
             _contextAccessor = contextAccessor;
         }
-        public async Task<ServiceResponse<CreateApprovalCommandRespond>> Handle (createApprovalCommand request, CancellationToken cancellationToken)
+        //public async Task<ServiceResponse<CreateApprovalResponse>> Handle (createApprovalCommand request, CancellationToken cancellationToken)
+        //{
+        //    var serviceResponse = new ServiceResponse<CreateApprovalResponse>();
+        //    try
+        //    {
+        //        CreateApprovalCommandValidator validator = new CreateApprovalCommandValidator();
+
+        //        var result = await validator.ValidateAsync(request);
+
+        //        if (result.Errors.Any())
+        //        {
+        //            throw new Exception("Approval is not valid");
+        //        }
+        //        var vendorIdClaim = _contextAccessor.HttpContext?.User?.FindFirst("VendorId");
+
+        //        var approval = new ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Approval();
+
+
+        //            _mapper.Map(request.Approval, approval);
+
+        //        var ClientId = _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "ClientId")?.Value;
+        //        var ConnectionString = _unitOfWork.getConnectionStringByClinetId(ClientId);
+        //        approval.ApprovalId=(_unitOfWork.ApprovalRepository.GenerateApprovalId(ClientId, ConnectionString));
+
+        //        approval.LastUpdateDate = DateTime.UtcNow;
+        //        approval.LastUpdateBy= _contextAccessor.HttpContext?.User.Identity?.Name;
+        //        approval.VendorId = vendorIdClaim.Value;
+        //        int count = 0;
+        //        foreach (var item in request.Services)
+        //        {
+
+
+        //            item.ItemSerial=++count;
+        //            item.LastUpdateDate = DateTime.UtcNow;
+        //            item.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
+        //            approval.ApprovalServices.Add(_mapper.Map(item,  new ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ApprovalService()));
+
+
+        //        }
+
+
+
+        //        foreach (var id in request.DiagnosesIds)
+        //        {
+
+        //            var X = await _unitOfWork.OnlinediagnosisRepository.GetByIdAsync(id.ToString()); 
+        //            approval.Diagnoses.Add(X);
+        //        }
+
+
+        //        await _unitOfWork.ApprovalRepository.AddAsync(approval);
+
+        //        try
+        //        {
+
+        //            var done = _unitOfWork.Save();
+        //        }
+        //        catch (Exception)
+        //        {
+
+        //            throw;
+        //        }
+        //        finally {
+
+        //            var x= approval.ApprovalId; 
+        //            serviceResponse.Data.ApprovalId = approval.ApprovalId;
+
+
+        //                }
+
+
+        //    }
+        //    catch (Exception ex) 
+        //    {
+
+        //    }
+        //    return serviceResponse;
+        //}
+
+
+        public async Task<ServiceResponse<CreateApprovalResponse>> Handle(createApprovalCommand request, CancellationToken cancellationToken)
         {
-            var serviceResponse = new ServiceResponse<CreateApprovalCommandRespond>();
+            var serviceResponse = new ServiceResponse<CreateApprovalResponse>
+            {
+                Data = new CreateApprovalResponse() 
+            };
+
             try
             {
                 CreateApprovalCommandValidator validator = new CreateApprovalCommandValidator();
-
                 var result = await validator.ValidateAsync(request);
 
                 if (result.Errors.Any())
@@ -46,83 +131,79 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                     throw new Exception("Approval is not valid");
                 }
 
+                var vendorIdClaim = _contextAccessor.HttpContext?.User?.FindFirst("VendorId");
 
+                var approval = new ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Approval();
+                _mapper.Map(request.Approval, approval);
 
+                var ClientId = _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "ClientId")?.Value;
+                var ConnectionString = _unitOfWork.getConnectionStringByClinetId(ClientId);
 
-               
-				//if (request == null)
-				//    throw new Exception("Your Request is Not Valid");
+                approval.ApprovalId = _unitOfWork.ApprovalRepository.GenerateApprovalId(ClientId, ConnectionString);
+                approval.LastUpdateDate = DateTime.UtcNow;
+                approval.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
 
-				//if (request.Services == null)
-				//    throw new Exception("Your Request 0 Service !!");
+           
+                approval.VendorId = vendorIdClaim?.Value;
+                approval.ApType = "Surgical";
+                approval.ApStatus = "N";
+                approval.RequestSource = "Online_IQ-Health-Portal";
+                approval.IsOnline = "1";
+                approval.OnlineStatus = "P";
+                approval.VBranchId = long.Parse( _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "BranchId")?.Value);
 
-				var approval = ACMS_ONLINE_DOMAIN.Approval.Entities.Approval.Create(request.ClaimDate);
-
-                // set approval Id 
-                approval.SetApprovalId(GenerateApprovalId());
-
-
+                int count = 0;
                 foreach (var item in request.Services)
                 {
-                    approval.AddService(ACMS_ONLINE_DOMAIN.Approval.Entities.ApprovalService.Create(
+                    item.ItemSerial = ++count;
+                    //item.LastUpdateDate = DateTime.UtcNow;
+                    //item.LastUpdateBy   = _contextAccessor.HttpContext?.User.Identity?.Name;
 
-                        approvalId: approval.ApprovalId,
-                        itemSerial: approval.Services1.Count() + 1,
-                        isChronic: item.isChronic,
-                        serviceId: item.ServiceId,
-                        price: item.Price,
-                        itemDescription: item.Note,
-                        medItem: item.medItem,
-                        dose: new ACMS_ONLINE_DOMAIN.Approval.ValueObjects.Dose(item.DoseUnits, item.DoseRepeat, item.DoseDuration)
-                        ));
+
+                    var ap = new ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ApprovalService();
+                    ap.LastUpdateDate = DateTime.UtcNow;
+                    ap.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
+                    try
+                    {
+                    approval.ApprovalServices.Add(_mapper.Map(item, ap));
+
+                    }
+                    catch (AutoMapperMappingException ex)
+                    {
+                        //Console.WriteLine($"Error mapping property: {ex.PropertyMap?.DestinationName}");
+                        Console.WriteLine($"Exception Message: {ex.Message}");
+                        throw;
+                    }
                 }
 
+                foreach (var id in request.DiagnosesIds)
+                {
+                    var diagnosis = await _unitOfWork.OnlinediagnosisRepository.GetByIdAsync(id.ToString()); 
+                    if (diagnosis != null)
+                    {
+                        approval.Diagnoses.Add(diagnosis);
+                    }
+                }
 
-                var DataModel = _mapper.Map<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Approval>(approval);
+                await _unitOfWork.ApprovalRepository.AddAsync(approval);
 
-
-                await _unitOfWork.ApprovalRepository.AddAsync(DataModel);
+                
                 var done = _unitOfWork.Save();
 
-                //await _mediator.Publish(new ProductCreatedEvent(product.Id, product.Title, product.Description, product.StockQuantity), cancellationToken);
-
-                //return new CreateApprovalCommandRespond { IsSuccess = true, ApprovalId = approval.ApprovalId.ToString() };
+              
+                serviceResponse.Data.ApprovalId = approval.ApprovalId;
+                serviceResponse.Data.IsSuccess = true; 
             }
             catch (Exception ex)
             {
-
+                
+                serviceResponse.Success = false;
+              
             }
+
             return serviceResponse;
         }
-    
-        private long GenerateApprovalId()
-        {
-
-            var ClientId = _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x=>x.Type == "ClientId")?.Value;
-            var ConnectionString = _unitOfWork.getConnectionStringByClinetId(ClientId);
-
-            long approvalId = 0;
-            using (AdoHelper adoHelper = new(ConnectionString))
-            {
-
-                var year = DateTime.Today.ToString("yy");
-                string query = "SELECT [dbo].[f_get_new_approval_id] (0,10" + year + "0000000)";
-                
-                
-                var clients = adoHelper.ExecuteQuery(query, reader =>
-                {
-                    return new
-                    {
-                        approvalId = reader.GetInt64(0)
-
-                    };
-                });
 
 
-                return approvalId + 1;
-            }
-
-            
-        }
     }
 }

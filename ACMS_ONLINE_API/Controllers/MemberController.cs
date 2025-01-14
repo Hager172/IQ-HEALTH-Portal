@@ -1,5 +1,6 @@
 ﻿using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberList;
+using ACMS_ONLINE_APPLICATION.MemberService.Commands.UploadImagePath;
 using ACMS_ONLINE_APPLICATION.MemberService.Queries.GetImageMember;
 using ACMS_ONLINE_INFRASTRUCTURE.Utility.ResponseModel;
 using MediatR;
@@ -41,6 +42,38 @@ namespace ACMS_ONLINE_API.Controllers
             var GetImageMemberQuery = query;
             return Ok(await _mediator.Send(GetImageMemberQuery));
         }
+
+
+
+       
+
+
+
+        [HttpPost("UploadImage")]
+        public async Task<IActionResult> UploadImage([FromForm] IFormFile file, [FromForm] string folderPath , [FromForm]  string phone)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No file uploaded.");
+            }
+
+            var command = new UploadImagePathCommand
+            {
+                file = file,
+                folderPath = folderPath,
+                phone = phone
+            };
+
+            var result = await _mediator.Send(command);
+
+            if (result.Success)
+            {
+                return Ok(result.Data);
+            }
+
+            return StatusCode(500, new { message = result.MessageEn });
+        }
+
 
     }
 }

@@ -25,7 +25,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.MeddleWare
         }
 
         public async Task InvokeAsync(HttpContext context)
-        {
+         {
             var authHeader = context.Request.Headers["Authorization"].ToString();
             Console.WriteLine($"Authorization Header: {authHeader}");
 

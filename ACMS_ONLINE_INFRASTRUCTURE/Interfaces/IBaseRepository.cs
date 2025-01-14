@@ -4,12 +4,12 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {
-        T GetById(int id);
-        Task<T> GetByIdAsync(int id);
-        T GetById(string id);
-        Task<T> GetByIdAsync(string id);
-        T GetById(long id);
-        Task<T> GetByIdAsync(long id);
+        T GetById(int id); 
+        Task<T> GetByIdAsync(int id);                                  
+        T GetById(string id);                                                         
+        Task<T> GetByIdAsync(string id);                   
+        T GetById(long id);                                                                 
+        Task<T> GetByIdAsync(long id);           
 
         IEnumerable<T> GetAll();
         Task<IEnumerable<T>> GetAllAsync();

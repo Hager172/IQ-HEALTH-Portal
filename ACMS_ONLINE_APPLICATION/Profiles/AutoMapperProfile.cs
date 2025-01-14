@@ -1,4 +1,5 @@
-﻿using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails;
+﻿using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval;
+using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails;
 using ACMS_ONLINE_APPLICATION.User.Dto;
 using ACMS_ONLINE_APPLICATION.User.GetUserClients;
 using ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData;
@@ -22,13 +23,13 @@ namespace ACMS_ONLINE_APPLICATION.Profiles
             CreateMap<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Member, GetMemberDetailsDto>().ReverseMap();
             CreateMap<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ContractService, GetServicesResponse > ().ReverseMap();
             CreateMap<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.Page,ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData. Page>()
-                //.ForMember(dest => dest.SubPages, opt => opt.MapFrom(src => src.SubPages));
+            //.ForMember(dest => dest.SubPages, opt => opt.MapFrom(src => src.SubPages));
                 .ReverseMap();
-
+            CreateMap<ApprovalReq, ACMS_ONLINE_INFRASTRUCTURE.Data.Models. Approval>();
             //CreateMap<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ClientOnlineUser, UserClientDto>().ReverseMap();
             //CreateMap<ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ClientOnlineUser, GetUserClientsResponse>().ReverseMap();
-
-
+            
+                 CreateMap<ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval.ApprovalService, ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ApprovalService>();
             //<<<
             //CreateMap< GetMemberDetailsDto ,  ACMS_ONLINE_INFRASTRUCTURE.Data.Models.Member > ().ReverseMap();
             //CreateMap<UserClientDto, ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ClientOnlineUser>().ReverseMap();
