@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {}
+    "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {}
   },
   "projects": {
-    "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {
+    "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj",
+        "projectUniqueName": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj",
         "projectName": "ACMS_ONLINE_INFRASTRUCTURE",
-        "projectPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj",
-        "packagesPath": "C:\\Users\\DB\\.nuget\\packages\\",
-        "outputPath": "D:\\repos\\MASHREQ\\ACMS_ONLINE\\ACMS_ONLINE_INFRASTRUCTURE\\obj\\",
+        "projectPath": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\ACMS_ONLINE_INFRASTRUCTURE.csproj",
+        "packagesPath": "C:\\Users\\StepOne\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_INFRASTRUCTURE\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\DB\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\StepOne\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -95,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

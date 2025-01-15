@@ -73,6 +73,7 @@ namespace ACMS_ONLINE_APPLICATION.VendorService.Queries.GetListOfVendorClims
                     string fromDate = request.From;
                     string toDate = request.To;
 
+                   
 
                     string listOfVendorClaimsQuery = $@"
             SELECT 
@@ -116,7 +117,7 @@ m.member_name,
                 vg.vendor_name, 
                 vb.vendor_branch_name";
 
-
+                    adoHelper.CommandTimeout = 1800;
                     var result = adoHelper.ExecuteQueryList(listOfVendorClaimsQuery, reader =>
                     {
                         var totalPrice = reader["total_price"] != DBNull.Value
@@ -163,6 +164,7 @@ m.member_name,
                 }
             }
             catch (SqlException sqlEx)
+            
             {
                 response.Success = false;
                 response.MessageEn = $"A database error occurred: {sqlEx.Message}";

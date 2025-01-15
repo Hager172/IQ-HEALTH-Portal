@@ -7,9 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0\ACMS_ONLINE_APPLICATION.deps.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ApprovalService\Commands\CancelApproval\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="MemberService\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_APPLICATION.dll" />
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_APPLICATION.pdb" />
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.dll" />
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_DOMAIN.pdb" />
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_INFRASTRUCTURE.dll" />
+    <None Include="bin\Debug\net8.0\ACMS_ONLINE_INFRASTRUCTURE.pdb" />
   </ItemGroup>
 
   <ItemGroup>

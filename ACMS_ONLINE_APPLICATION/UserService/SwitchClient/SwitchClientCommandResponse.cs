@@ -17,7 +17,7 @@ namespace ACMS_ONLINE_APPLICATION.User.SwitchClient
         public string? Username { get; set; }
         public List<UserClientDto> Clients { get; set; }
         public List<string>? Roles { get; set; }
-        public string? Token { get; set; }
+        public string? AuthToken { get; set; }
         public DateTime? ExpiresOn { get; set; }
 
         //[JsonIgnore]

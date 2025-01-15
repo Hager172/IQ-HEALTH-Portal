@@ -9,6 +9,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Dto
     public class UserClientDto
     {
         public string ClientName { get; set; }
+    
         public bool IsDefault { get; set; }
 
     }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -37,8 +40,20 @@ namespace ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData
 
         public List<Page> Pages { get; set; } = new List<Page>();
 
+        public String CurrentClinetId { get; set; }
+        public List<OnlineUserClientDto> clients { get; set; }
+
+
     }
 
+    public class OnlineUserClientDto
+    {
+
+        public int ClientId { get; set; }
+        public string ClientName { get; set; }
+
+        
+    }
     public class AddressModel
     {
         public string Street { get; set; }

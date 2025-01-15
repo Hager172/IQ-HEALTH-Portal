@@ -1,4 +1,5 @@
 ﻿using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberList;
+using ACMS_ONLINE_APPLICATION.User.Auth;
 using ACMS_ONLINE_APPLICATION.User.SwitchClient;
 using ACMS_ONLINE_APPLICATION.VendorService.Queries.GetAllVendorServices;
 using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
@@ -28,14 +29,16 @@ namespace ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        
-        public GetuserDataQueryHandler(IUnitOfWork unitOfWork, IHttpContextAccessor contextAccessor, IMapper mapper, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager)
+        private readonly IAuthService _authService;
+
+        public GetuserDataQueryHandler(IUnitOfWork unitOfWork, IHttpContextAccessor contextAccessor, IMapper mapper, UserManager<ApplicationUser> userManager, RoleManager<ApplicationRole> roleManager,IAuthService authService)
         {
             _httpContextAccessor = contextAccessor;
             _unitOfWork = unitOfWork;
             _userManager = userManager;
             _mapper = mapper;
             _roleManager = roleManager;
+            _authService = authService;
         }
 
 
@@ -93,6 +96,21 @@ namespace ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData
                     .Select(x => x.ParentPage)
                     .ToList();
 
+
+                var CurrentClinetId = _authService.GetUserCurrentClient();
+                var clients = _unitOfWork.OnlineUserClientRepository.FindAll(x => x.UserId == user.Id)
+       .Join(
+           _unitOfWork.OnlineClientRepository.GetAll(),
+           userClient => userClient.ClientId,
+           client => client.ClientId,
+           (userClient, client) => new OnlineUserClientDto
+           {
+               ClientId = userClient.ClientId,
+               ClientName = client.ClientName
+           }
+       ).ToList();
+
+
                 // Map the data into the response object
                 var userDataResponse = new GetUserDataQueryResponse
                 {
@@ -107,7 +125,12 @@ namespace ACMS_ONLINE_APPLICATION.UserService.Queries.GetUserData
                     Phone = user.PhoneNumber,
                     Address = new AddressModel(), // Initialize with default or existing user address
                     SocialNetworks = new SocialNetworksModel(), // Initialize with default or existing user social networks
-                    Pages = _mapper.Map<List<Page>>(hierarchicalPages) // Map hierarchical pages
+                    Pages = _mapper.Map<List<Page>>(hierarchicalPages),
+                    // Map hierarchical pages
+
+                    CurrentClinetId = CurrentClinetId,
+                    clients = clients
+
                 };
 
                 return userDataResponse;

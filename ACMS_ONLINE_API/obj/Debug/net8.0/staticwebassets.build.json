@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "BE6WmQFKE/gUOUV7716RoQwRW/hY4HzhXyWmev5bhl8=",
+  "Hash": "GPrugtNChcSE2LxmjGdpNmFLOBZqbvHero+OobM9maE=",
   "Source": "ACMS_ONLINE_API",
   "BasePath": "_content/ACMS_ONLINE_API",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ACMS_ONLINE_API\\wwwroot",
+      "Source": "ACMS_ONLINE_API",
+      "ContentRoot": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_API\\wwwroot\\",
+      "BasePath": "_content/ACMS_ONLINE_API",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_API\\wwwroot\\avatars\\mohamed_nada.png",
+      "SourceId": "ACMS_ONLINE_API",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\IQ-Health-portal\\ACMS_ONLINE_API\\wwwroot\\",
+      "BasePath": "_content/ACMS_ONLINE_API",
+      "RelativePath": "avatars/mohamed_nada.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\avatars\\mohamed_nada.png"
+    }
+  ]
 }
