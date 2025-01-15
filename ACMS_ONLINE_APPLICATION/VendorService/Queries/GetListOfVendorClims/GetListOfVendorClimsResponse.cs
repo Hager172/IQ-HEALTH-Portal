@@ -25,6 +25,7 @@ namespace ACMS_ONLINE_APPLICATION.VendorService.Queries.GetListOfVendorClims
         public bool IsEditable { get; set; }
         public bool IsDeletable { get; set; }
         public bool IsPrintable { get; set; }
+        public bool IsInArchive { get; set; }
     }
 
 }

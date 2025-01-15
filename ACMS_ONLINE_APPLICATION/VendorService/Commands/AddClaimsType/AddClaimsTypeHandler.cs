@@ -174,10 +174,10 @@ namespace ACMS_ONLINE_APPLICATION.VendorService.Commands.AddClaimsType
                   
                     var archiveEntry = new ApprovalsArchive
                     {
-                        Name = request.file.FileName,
+                        Name = $"{request.Approvalid}_{Guid.NewGuid()}",
                         Path = request.file.FileName,
                         ApprovalId = request.Approvalid,
-                        LastUpdateBy = "System",
+                        LastUpdateBy = "IQ_Health_Portal_System",
                         LastUpdateDate = DateTime.UtcNow
                     };
 
