@@ -151,7 +151,6 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                 approval.IsOnline = "1";
                 approval.OnlineStatus = "P";
                 approval.VBranchId = long.Parse( _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "BranchId")?.Value);
-
                 int count = 0;
                 foreach (var item in request.Services)
                 {
@@ -203,7 +202,6 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
             return serviceResponse;
         }
-
 
     }
 }

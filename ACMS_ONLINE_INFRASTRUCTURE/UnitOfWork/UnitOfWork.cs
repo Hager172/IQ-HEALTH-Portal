@@ -24,13 +24,17 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
         private readonly IdentityContext _dbIdentityContext;
 
         // Repositories for ApplicationDbContext
-        public IBaseRepository<Member> MemberRepository { get; set; }
-        //public IBaseRepository<Approval> ApprovalRepository { get; set; }
+
+        public IMemberRepository MemberRepository { get; set; }
+        public IBaseRepository<ApprovalService> ApprovalServiceRepository { get; set; }
+        public IBaseRepository<VendorGeneral> VendorGeneralRepository { get; set; }
+
+
         public IBaseRepository<ApprovalsArchive> ApprovalsArchiveRepository { get; set; }
         public IClaimsTypeRepository ClaimsTypeRepository { get; set; }
         public  IRepApproval ApprovalRepository { get; set; }
-        // Repositories for IdentityContext
 
+        // Repositories for IdentityContext
         public IBaseRepository<Identity.Entities.OnlineClient> OnlineClientRepository { get ; set ; }
         public IBaseRepository<Identity.Entities.OnlineUserClient> OnlineUserClientRepository { get ; set ; }
         public IBaseRepository<Identity.Entities.Page> PagesRepository { get; set; }
@@ -60,13 +64,14 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
         {
             _dbContext = _dbContextFactory.CreateDbContext(connectionString);
 
-            MemberRepository = new BaseRepository<Member>(_dbContext);
-            //ApprovalRepository = new BaseRepository<Approval>(_dbContext);
+            MemberRepository = new MemberRepository(_dbContext);
             ApprovalRepository = new RepApproval(_dbContext);
             ContractServiceRepository = new ContractServicesRepository(_dbContext);
             ClaimsTypeRepository = new ClaimsTypeRepository(_dbContext);
             ApprovalsArchiveRepository = new BaseRepository<ApprovalsArchive>(_dbContext);
             OnlineSettingRepository =new BaseRepository<OnlineSetting>(_dbContext);
+            ApprovalServiceRepository = new BaseRepository<ApprovalService>(_dbContext);
+            VendorGeneralRepository = new BaseRepository<VendorGeneral>(_dbContext);
             OnlinediagnosisRepository = new BaseRepository<OnlineDiagnosis>(_dbContext);
 
         }

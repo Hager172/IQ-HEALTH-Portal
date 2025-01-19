@@ -13,8 +13,10 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Interfaces
     public interface IUnitOfWork :IDisposable
     {
 
-        IBaseRepository<Member> MemberRepository { get; set; }
-        //IBaseRepository<Approval> ApprovalRepository { get; set; }
+        IMemberRepository MemberRepository { get; set; }
+        IBaseRepository<ApprovalService> ApprovalServiceRepository { get; set; }
+        IBaseRepository<VendorGeneral> VendorGeneralRepository { get; set; }
+
         IBaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.OnlineClient> OnlineClientRepository { get; set; }
         IBaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.OnlineUserClient> OnlineUserClientRepository { get; set; }
         IBaseRepository<Identity.Entities.Page> PagesRepository { get; set; }
