@@ -39,12 +39,7 @@ namespace ACMS_ONLINE_API.Controllers
 
 
         public async Task<ActionResult<ServiceResponse<List<GetListOfVendorClimsResponse>>>> GetListVendorClims([FromQuery] GetListOfVendorClimsQuery query)
-        
-        
-        
-        
-        
-        
+  
         {
             return Ok(await _mediator.Send(query));
         }

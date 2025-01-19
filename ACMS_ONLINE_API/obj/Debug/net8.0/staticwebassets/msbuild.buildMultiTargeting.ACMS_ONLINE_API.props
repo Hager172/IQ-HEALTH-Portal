@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\ACMS_ONLINE_API.props" />
-</Project>

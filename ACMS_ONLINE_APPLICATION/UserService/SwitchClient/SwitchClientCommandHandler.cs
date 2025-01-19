@@ -69,13 +69,15 @@ namespace ACMS_ONLINE_APPLICATION.User.SwitchClient
 
                 var switchClient = new SwitchClientCommandResponse()
                 {
+                    Username = user.UserName,
                     BranchId = client.BranchId.ToString(),
                     VendorId = client.VendorId,
-                    Token = new JwtSecurityTokenHandler().WriteToken(token),
+                    IsAuthenticated = true,
+                    AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
 
                 };
+              
 
-               
                 serviceResponse.Data = switchClient;
             }
             catch (Exception ex)

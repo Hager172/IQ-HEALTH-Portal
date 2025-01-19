@@ -51,9 +51,11 @@ namespace ACMS_ONLINE_API.Controllers
         }
 
         [Authorize]
-        [HttpPost("SwitchAccount", Name = "SwitchClients")]
-        public async Task<ActionResult<ServiceResponse<GetApprovalDetailsQuery>>> SwitchAccount(int ClientId)
+        [HttpPost("SwitchClients", Name = "SwitchClients")]
+        public async Task<ActionResult<ServiceResponse<GetApprovalDetailsQuery>>> SwitchClients([FromQuery] int ClientId)
         {
+
+     
             var SwitchClientCommand = new SwitchClientCommand() { ClientId = ClientId };
             return Ok(await _mediator.Send(SwitchClientCommand));
         }

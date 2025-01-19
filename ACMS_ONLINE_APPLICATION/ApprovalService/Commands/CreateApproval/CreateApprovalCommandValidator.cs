@@ -12,14 +12,14 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
     {
         public CreateApprovalCommandValidator()
         {
-            RuleFor(p => p.InsuredID)
-                .NotEmpty()
-                .NotNull()
-                .MaximumLength(100);
+            //RuleFor(p => p.InsuredID)
+            //    .NotEmpty()
+            //    .NotNull()
+            //    .MaximumLength(100);
 
-            RuleFor(p => p.ClaimDate)
-                .NotEmpty()
-                .NotNull();
+            //RuleFor(p => p.ClaimDate)
+            //    .NotEmpty()
+            //    .NotNull();
         }
     }
 }

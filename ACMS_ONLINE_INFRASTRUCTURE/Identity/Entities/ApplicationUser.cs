@@ -11,5 +11,6 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities
     {
         public List<RefreshToken>? RefreshTokens { get; set; }
 
+        public string? PathImage { get; set; }
     }
 }

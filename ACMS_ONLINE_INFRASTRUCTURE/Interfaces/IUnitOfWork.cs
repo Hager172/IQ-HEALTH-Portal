@@ -14,7 +14,6 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Interfaces
     {
 
         IMemberRepository MemberRepository { get; set; }
-        IBaseRepository<Approval> ApprovalRepository { get; set; }
         IBaseRepository<ApprovalService> ApprovalServiceRepository { get; set; }
         IBaseRepository<VendorGeneral> VendorGeneralRepository { get; set; }
 
@@ -23,10 +22,11 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Interfaces
         IBaseRepository<Identity.Entities.Page> PagesRepository { get; set; }
         IBaseRepository<Identity.Entities.Privilege> PrivilegesRepository { get; set; }
         IBaseRepository<OnlineSetting> OnlineSettingRepository { get; set; }
+        IBaseRepository<OnlineDiagnosis> OnlinediagnosisRepository { get; set; }
         public IClaimsTypeRepository ClaimsTypeRepository { get; set; }
         public IBaseRepository<ApprovalsArchive> ApprovalsArchiveRepository { get; set; }
         ContractServicesRepository ContractServiceRepository { get; set; }
-
+        public IRepApproval ApprovalRepository { get; set; }
         public void SetConnectionString(string clientId);
         public string getConnectionStringByClinetId(string clientId);
         public string GetDefaultConnectionString();

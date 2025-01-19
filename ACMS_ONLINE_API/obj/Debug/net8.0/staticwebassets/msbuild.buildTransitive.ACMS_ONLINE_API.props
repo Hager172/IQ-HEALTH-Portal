@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\ACMS_ONLINE_API.props" />
-</Project>

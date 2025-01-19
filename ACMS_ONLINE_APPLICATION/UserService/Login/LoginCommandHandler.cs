@@ -61,12 +61,14 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                 if (result.Succeeded)
                 {
                     var client = await _unitOfWork.OnlineUserClientRepository.FindAsync(x => x.UserId == user.Id && x.IsDefault == true);
+                    
                     // Generate JWT token
                     var token = await _authService.CreateJwtToken(user, client);
                     // var clients = await _authService.GetUserClientList(user.Id);
                     var refreshToken = _authService.GenerateRefreshToken();
                     user.RefreshTokens?.Add(refreshToken);
                     await _userManager.UpdateAsync(user);
+
 
                     var loginResponse = new LoginResponseDto()
                     {
@@ -76,14 +78,9 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                         BranchId = client.BranchId.ToString(),
                         IsAuthenticated = true,
                         AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
-<<<<<<< HEAD
                         ExpiresIn =token.ValidTo, //DateTime.UtcNow.AddDays(_jwt.DurationInDays),
-=======
-                        //ExpiresIn = DateTime.UtcNow.AddDays(_jwt.DurationInDays),
->>>>>>> 12d75330ac2de508d884b6fea5e4758d40da5f8a
                         RefreshToken = refreshToken.Token,
                         RefreshTokenExpiration = refreshToken.ExpiresOn,
-                        //Clients = _authService.g
                     };
 
 					serviceResponse.Data= loginResponse;

@@ -12,7 +12,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Utility.Helpers
     {
         private readonly string _connectionString;
         private SqlConnection _connection;
-
+        public int CommandTimeout { get; set; } = 30;
         public AdoHelper(string connectionString)
         {
             _connectionString = connectionString;
@@ -46,6 +46,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Utility.Helpers
                     {
                         if (reader.Read())
                         {
+                            command.CommandTimeout = CommandTimeout;
                             return readFunc(reader);
                         }
                     }
