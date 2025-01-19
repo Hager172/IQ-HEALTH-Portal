@@ -11,8 +11,10 @@ namespace ACMS_ONLINE_APPLICATION.MemberService.Commands.UploadImagePath
 {
     public class UploadImagePathCommand : IRequest<ServiceResponse<UploadImagePathResponse>>
     {
-        public string folderPath { get; set; }
+        //public string folderPath { get; set; }
         public string phone { get; set; }
         public IFormFile file { get; set; }
+
+        public string Email {  get; set; }
     }
 }

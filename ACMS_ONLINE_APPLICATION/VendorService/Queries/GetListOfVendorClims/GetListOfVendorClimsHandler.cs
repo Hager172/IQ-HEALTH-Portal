@@ -94,7 +94,17 @@ m.member_name,
                 (SELECT SUM(ISNULL(asrv.price, 0)) 
                  FROM approval_services asrv 
                  WHERE asrv.approval_id = a.approval_id) AS total_price ,
-          (SELECT value FROM Online_Settings where item='maxDays') AS maxDays
+          (SELECT value FROM Online_Settings where item='maxDays') AS maxDays,
+
+        CASE 
+            WHEN EXISTS (
+                SELECT 1 
+                FROM approvals_archive AA 
+                WHERE a.approval_id = AA.approval_id 
+                  AND AA.last_update_by = 'IQ_Health_Portal_System'
+            ) THEN 1
+            ELSE 0
+        END AS IsInArchive
             FROM approvals a
             LEFT JOIN Members m ON m.member_id = a.member_id
             JOIN Customers c ON m.member_customer_id = c.customer_id
@@ -155,7 +165,10 @@ m.member_name,
 
                             IsEditable = isEditable,
                             IsPrintable = (status == "D" && totalPrice > 0),
-                            IsDeletable = (isDeletable && status == "P")
+                            IsDeletable = (isDeletable && status == "P"),
+                            IsInArchive = reader["IsInArchive"] != DBNull.Value
+                    ? Convert.ToBoolean(reader["IsInArchive"])
+                    : false
 
                         };
                     });

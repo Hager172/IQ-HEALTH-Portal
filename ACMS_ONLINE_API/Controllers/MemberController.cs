@@ -50,21 +50,21 @@ namespace ACMS_ONLINE_API.Controllers
 
 
         [HttpPost("UploadImage")]
-        public async Task<IActionResult> UploadImage([FromForm] IFormFile file, [FromForm] string folderPath , [FromForm]  string phone)
+        public async Task<IActionResult> UploadImage(/*[FromForm] IFormFile file, [FromForm] string folderPath , [FromForm]  string phone , string Email*/UploadImagePathCommand query )
         {
-            if (file == null || file.Length == 0)
-            {
-                return BadRequest("No file uploaded.");
-            }
+            //if (file == null || file.Length == 0)
+            //{
+            //    return BadRequest("No file uploaded.");
+            //}
 
-            var command = new UploadImagePathCommand
-            {
-                file = file,
-                folderPath = folderPath,
-                phone = phone
-            };
-
-            var result = await _mediator.Send(command);
+            //var command = new UploadImagePathCommand
+            //{
+            //    file = file,
+            //    folderPath = folderPath,
+            //    phone = phone
+            //};
+            var UploadImagePathCommand = query;
+            var result = await _mediator.Send(UploadImagePathCommand);
 
             if (result.Success)
             {
