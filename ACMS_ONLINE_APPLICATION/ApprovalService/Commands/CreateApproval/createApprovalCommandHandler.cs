@@ -147,7 +147,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                 approval.VendorId = vendorIdClaim?.Value;
                 approval.ApType = "Surgical";
                 approval.ApStatus = "N";
-                approval.RequestSource = "Online_IQ-Health-Portal";
+                approval.RequestSource = "IQ-HealthPortal";
                 approval.IsOnline = "1";
                 approval.OnlineStatus = "P";
                 approval.VBranchId = long.Parse( _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "BranchId")?.Value);
@@ -166,7 +166,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                     {
                     approval.ApprovalServices.Add(_mapper.Map(item, ap));
 
-                    }
+                    } 
                     catch (AutoMapperMappingException ex)
                     {
                         //Console.WriteLine($"Error mapping property: {ex.PropertyMap?.DestinationName}");
