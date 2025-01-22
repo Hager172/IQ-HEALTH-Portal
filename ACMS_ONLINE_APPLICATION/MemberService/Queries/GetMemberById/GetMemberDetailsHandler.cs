@@ -58,6 +58,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
 
                 if (member == null )
                     return null;
+
                 var plan = member.MemberPlans
                                   .FirstOrDefault
                                   (x => x.PlanCodeNavigation.Contract.CustomerContractEndDate >= DateTime.Now
