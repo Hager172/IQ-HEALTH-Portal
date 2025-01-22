@@ -56,6 +56,9 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
                 var member = await _unitOfWork.MemberRepository.FindAsync(x => x.MemberId == request.MemberId, new[] { "MemberParentNavigation", "MemberCustomer","MemberPlans.PlanCodeNavigation.Contract" });
                 var status = await _unitOfWork.MemberRepository.getMemberStautsAtDate(request.MemberId.Trim(), DateTime.Now);
 
+                if (member == null )
+                    return null;
+
                 var plan = member.MemberPlans
                                   .FirstOrDefault
                                   (x => x.PlanCodeNavigation.Contract.CustomerContractEndDate >= DateTime.Now
