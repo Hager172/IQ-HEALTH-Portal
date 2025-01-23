@@ -118,7 +118,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
         {
             var serviceResponse = new ServiceResponse<CreateApprovalResponse>
             {
-                Data = new CreateApprovalResponse() 
+                Data = new CreateApprovalResponse()
             };
 
             try
@@ -143,14 +143,14 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
                 approval.LastUpdateDate = DateTime.UtcNow;
                 approval.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
 
-           
+
                 approval.VendorId = vendorIdClaim?.Value;
                 approval.ApType = "Surgical";
                 approval.ApStatus = "N";
-                approval.RequestSource = "IQ-HealthPortal";
+                approval.RequestSource = "IQ-Health-Portal";
                 approval.IsOnline = "1";
                 approval.OnlineStatus = "P";
-                approval.VBranchId = long.Parse( _contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "BranchId")?.Value);
+                approval.VBranchId = long.Parse(_contextAccessor.HttpContext?.User.Claims.FirstOrDefault(x => x.Type == "BranchId")?.Value);
                 int count = 0;
                 foreach (var item in request.Services)
                 {
@@ -160,13 +160,13 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
 
                     var ap = new ACMS_ONLINE_INFRASTRUCTURE.Data.Models.ApprovalService();
-                    ap.LastUpdateDate = DateTime.UtcNow;
-                    ap.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
+                    item.LastUpdateDate = DateTime.UtcNow;
+                    item.LastUpdateBy = _contextAccessor.HttpContext?.User.Identity?.Name;
                     try
                     {
-                    approval.ApprovalServices.Add(_mapper.Map(item, ap));
+                        approval.ApprovalServices.Add(_mapper.Map(item, ap));
 
-                    } 
+                    }
                     catch (AutoMapperMappingException ex)
                     {
                         //Console.WriteLine($"Error mapping property: {ex.PropertyMap?.DestinationName}");
@@ -177,7 +177,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
                 foreach (var id in request.DiagnosesIds)
                 {
-                    var diagnosis = await _unitOfWork.OnlinediagnosisRepository.GetByIdAsync(id.ToString()); 
+                    var diagnosis = await _unitOfWork.OnlinediagnosisRepository.GetByIdAsync(id.ToString());
                     if (diagnosis != null)
                     {
                         approval.Diagnoses.Add(diagnosis);
@@ -186,22 +186,23 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval
 
                 await _unitOfWork.ApprovalRepository.AddAsync(approval);
 
-                
+
                 var done = _unitOfWork.Save();
 
-              
+
                 serviceResponse.Data.ApprovalId = approval.ApprovalId;
-                serviceResponse.Data.IsSuccess = true; 
+                serviceResponse.Data.IsSuccess = true;
             }
             catch (Exception ex)
             {
-                
+
                 serviceResponse.Success = false;
-              
+
             }
 
             return serviceResponse;
         }
+
 
     }
 }

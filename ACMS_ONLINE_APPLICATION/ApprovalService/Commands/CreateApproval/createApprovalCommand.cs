@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval
 {
+
     public class createApprovalCommand : IRequest<ServiceResponse<CreateApprovalResponse>>
     {
         //public String InsuredID { get; set; }
@@ -26,7 +27,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval
 
 
 
-       
+
 
     }
 
@@ -80,7 +81,7 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval
 
         public string? LastUpdateFrom { get; set; }
 
-        public string? VendorId { get; set; } 
+        public string? VendorId { get; set; }
 
         //public string? ApStatus { get; set; }
 
@@ -145,24 +146,24 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval
         //public int medItem { get; set; }
 
         //public long ApprovalId { get; set; }  
-        public int ItemSerial { get; set; }   
-        public int ServiceId { get; set; }    
-        public int MedItem { get; set; }      
-        public float Quantity { get; set; }   
-        public float Price { get; set; }      
-        public string ItemDescription { get; set; }
+        public int ItemSerial { get; set; }
+        public int ServiceId { get; set; }
+        public int MedItem { get; set; }
+        public double Quantity { get; set; }
+        public double Price { get; set; }
+        public string? ItemDescription { get; set; }
         public bool? IsChronic { get; set; }
         public int? ItemRepeat { get; set; }
-        public string Notes { get; set; }
-        public string LastUpdateBy { get; set; }
-        public DateTime LastUpdateDate { get; set; }
-        public string LastUpdateFrom { get; set; }
+        public string? Notes { get; set; }
+        public string? LastUpdateBy { get; set; }
+        public DateTime? LastUpdateDate { get; set; }
+        public string? LastUpdateFrom { get; set; }
         public int InsurerMedItem { get; set; }
-        public bool? Coinsurance { get; set; }
+        public double? Coinsurance { get; set; }
         //public string OnlineStatus { get; set; }
         public int? Days { get; set; }
         public int? ApprovalQuantity { get; set; }
-        public string DoseDurationType { get; set; }
+        public string? DoseDurationType { get; set; }
         public int? MinUnits { get; set; }
         public float? DoseUnits { get; set; }
         public int? DoseRepeat { get; set; }
@@ -173,5 +174,5 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval
 
     }
 
-  
+
 }
