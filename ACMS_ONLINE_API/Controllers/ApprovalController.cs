@@ -1,6 +1,7 @@
 ﻿using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.Approval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.ChangeStatusApproval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.CreateApproval;
+using ACMS_ONLINE_APPLICATION.ApprovalService.Commands.PrintApproval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetApproval;
 using ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetApprovalStats;
 using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
@@ -54,7 +55,12 @@ namespace ACMS_ONLINE_API.Controllers
             return Ok(await _mediator.Send(GetApprovalStatsQuery));
         }
 
-
+        [HttpGet("PrintApproval")]
+        public  async Task<ActionResult<PrintApprovalResponse>> PrintApproval([FromQuery] PrintApprovalCommand query)
+        {
+            var PrintApprovalCommand = query;
+            return Ok( await _mediator.Send(PrintApprovalCommand));
+        }
 
     }
 }
