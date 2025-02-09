@@ -111,7 +111,8 @@ m.member_name,
             JOIN Vendor_General vg ON vg.vendor_id = a.vendor_id
             LEFT JOIN vendor_branches vb ON vb.old_id = a.online_b_code  
             WHERE a.vendor_id = '{vendorId}' AND a.is_online='1'
-            AND a.approval_date BETWEEN '{fromDate}' AND '{toDate}'
+            AND a.approval_date BETWEEN '{fromDate}' AND '{toDate}' 
+            AND a.online_status !='C'
             GROUP BY 
                 a.approval_id, 
 a.contract_id,
