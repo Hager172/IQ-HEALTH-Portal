@@ -25,7 +25,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Repositories
         {
 
             //VendorId = "Hp00536";
-            var Sqltype = Type == "OutPatient" ? "كشف" : "";
+            var Sqltype = (Type == "Out Patient" || Type == "مرضى خارجيون") ? "كشف" : "";
             var services = new List<ContractService>();
             using (AdoHelper adoHelper = new AdoHelper (_context.Database.GetConnectionString()))
             {
