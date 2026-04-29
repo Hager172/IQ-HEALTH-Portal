@@ -1,4 +1,5 @@
 ﻿using ACMS_ONLINE_APPLICATION.User.Dto;
+using ACMS_ONLINE_INFRASTRUCTURE.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
         //[JsonIgnore]
         public string? RefreshToken { get; set; }
 
+        public List<PageDto> Pages { get; set; }
         public DateTime RefreshTokenExpiration { get; set; }
     }
 }

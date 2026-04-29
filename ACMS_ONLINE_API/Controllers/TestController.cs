@@ -23,6 +23,16 @@ namespace ACMS_ONLINE_API.Controllers
             return Ok("Server Is Working Authorize");
 
         }
+        [HttpOptions]
+        public IActionResult Options()
+        {
+            return Ok("CORS OK");
+        }
 
+        [HttpPost]
+        public IActionResult Post()
+        {
+            return Ok("POST OK");
+        }
     }
 }

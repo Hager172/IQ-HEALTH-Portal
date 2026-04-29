@@ -44,6 +44,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
 
 
         public ContractServicesRepository ContractServiceRepository { get; set; }
+        public IUserPermissionRepository UserPermissionRepository { get; set; }
  
 
         public UnitOfWork(IDbContextFactory dbContextFactory, IdentityContext identityContext,
@@ -83,6 +84,8 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork
             OnlineUserClientRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.OnlineUserClient>(_dbIdentityContext);
             PagesRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.Page>(_dbIdentityContext);
             PrivilegesRepository = new BaseRepository<ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities.Privilege>(_dbIdentityContext);
+
+            UserPermissionRepository = new UserPermissionRepository(_dbIdentityContext);
         }
 
         // Update connection string for ApplicationDbContext

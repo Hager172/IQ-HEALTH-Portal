@@ -17,7 +17,7 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0")
+                .HasAnnotation("ProductVersion", "10.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -134,6 +134,9 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Migrations
                         .IsRequired()
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
+
+                    b.Property<byte>("IsActive")
+                        .HasColumnType("tinyint");
 
                     b.HasKey("ClientId");
 

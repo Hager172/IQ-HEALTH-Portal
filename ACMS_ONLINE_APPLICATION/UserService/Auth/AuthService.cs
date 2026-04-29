@@ -1,22 +1,26 @@
 ﻿using ACMS_ONLINE_APPLICATION.User.Auth;
-
+using ACMS_ONLINE_APPLICATION.User.Dto;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
+using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
 using System.Threading.Tasks;
-using System.Security.Claims;
-using Microsoft.Extensions.Options;
-using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
-using ACMS_ONLINE_APPLICATION.User.Dto;
-using AutoMapper;
-using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
+
+
 
 namespace ACMS_ONLINE_APPLICATION.User.Auth
 {
@@ -84,9 +88,17 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
             var roleClaims = new List<System.Security.Claims.Claim>();
             var clients = new List<System.Security.Claims.Claim>();
 
+            
+
+            
+
+
             foreach (var role in roles)
                 roleClaims.Add(new System.Security.Claims.Claim("roles", role));
 
+           
+                
+               
 
 
 
@@ -109,6 +121,7 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
             .Union(userClaims)
             .Union(roleClaims)
             .Union(clients);
+            
 
 
 
@@ -182,5 +195,8 @@ namespace ACMS_ONLINE_APPLICATION.User.Auth
 
             return _mapper.Map<List<UserClientDto>>(clients);
         }
+
+
+
     }
 }

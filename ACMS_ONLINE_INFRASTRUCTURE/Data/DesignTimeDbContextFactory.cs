@@ -17,6 +17,6 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Data
 
             return new IdentityContext(optionsBuilder.Options);
         }
-    }
+}
 
 }

@@ -27,6 +27,8 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Interfaces
         public IBaseRepository<ApprovalsArchive> ApprovalsArchiveRepository { get; set; }
         ContractServicesRepository ContractServiceRepository { get; set; }
         public IRepApproval ApprovalRepository { get; set; }
+
+        public IUserPermissionRepository UserPermissionRepository { get; set; }
         public void SetConnectionString(string clientId);
         public string getConnectionStringByClinetId(string clientId);
         public string GetDefaultConnectionString();

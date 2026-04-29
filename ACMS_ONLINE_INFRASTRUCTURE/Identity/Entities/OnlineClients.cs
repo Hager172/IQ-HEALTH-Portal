@@ -19,9 +19,11 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities
 
         [Required]
         [StringLength(1000)]
-        public string ConnectionString { get; set; } 
+        public string ConnectionString { get; set; }
 
-        
+
+        public byte IsActive { get; set; }
+
         public ICollection<OnlineUserClient> OnlineUserClients { get; set; }
     }
 }

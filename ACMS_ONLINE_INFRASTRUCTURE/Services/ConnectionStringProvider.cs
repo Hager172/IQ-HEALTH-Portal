@@ -10,25 +10,36 @@ namespace ACMS_ONLINE_INFRASTRUCTURE.Services
 {
     public class ConnectionStringProvider : IConnectionStringProvider
     {
-        private readonly ClientConnectionOptions _options;
-       
+        private readonly IDictionary<string, string> _options;
+
         public ConnectionStringProvider(IOptions<ClientConnectionOptions> options)
         {
             _options = options.Value;
         }
-
         public string GetConnectionString(string clientId)
         {
-            if (_options.ClientConnections.ContainsKey(clientId))
+
+            if (string.IsNullOrEmpty(clientId))
             {
-                return _options.ClientConnections[clientId];
+                throw new ArgumentNullException(nameof(clientId), "Client ID cannot be null or empty.");
+            }
+            if (_options.ContainsKey(clientId))
+            {
+
+                // Log the connection string retrieval
+                Console.WriteLine($"Retrieving connection string for client: {clientId}");
+                // Optionally, you can log the connection string value, but be cautious with sensitive information
+                Console.WriteLine($"Connection string: {_options[clientId]}"); // Uncomment to log the connection string value
+
+
+                return _options[clientId];
             }
             throw new ArgumentException($"Connection string not found for client: {clientId}");
         }
 
         public string GetDefaultConnectionString()
         {
-            return _options.ClientConnections["2"];
+            return _options["2"];
         }
     }
 }

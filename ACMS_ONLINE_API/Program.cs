@@ -5,6 +5,7 @@ using ACMS_ONLINE_INFRASTRUCTURE.Data;
 using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
 using ACMS_ONLINE_INFRASTRUCTURE.MeddleWare;
+using ACMS_ONLINE_INFRASTRUCTURE.Repositories;
 using ACMS_ONLINE_INFRASTRUCTURE.Services;
 using ACMS_ONLINE_INFRASTRUCTURE.UnitOfWork;
 using MediatR;
@@ -15,6 +16,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi;
 using Microsoft.OpenApi.Models;
 using System;
 using System.Reflection;
@@ -38,6 +40,7 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options => {
 
 
 builder.Services.Configure<JWT>(builder.Configuration.GetSection("JwtSetting"));
+
 builder.Services.Configure<ClientConnectionOptions>(builder.Configuration.GetSection("ConnectionStrings"));
 
 
@@ -94,14 +97,16 @@ builder.Services.AddDbContext<IdentityContext>(options =>
 
 
 builder.Services.AddAuthorization();
-
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+builder.Services.AddSingleton<IConnectionStringProvider, ConnectionStringProvider>();
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-builder.Services.AddSingleton<IConnectionStringProvider, ConnectionStringProvider>();
 builder.Services.AddScoped<IDbContextFactory, DbContextFactory>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IUserPermissionRepository, UserPermissionRepository>();
 builder.Services.AddMediatR(Assembly.GetExecutingAssembly());
 builder.Services.AddMediatR(typeof(ApplicationLayer).Assembly);
 builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -155,17 +160,32 @@ builder.Services.AddSwaggerGen(c =>
 //              .AllowCredentials(); // If your API uses cookies or authentication
 //    });
 //});
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy("AllowAll", policy =>
+//    {
+//        policy.AllowAnyOrigin()
+//              .AllowAnyHeader()
+//              .AllowAnyMethod();
+//    });
+//});
+
+// Add this in ConfigureServices
+
+// Replace the incorrect usage of 'services' with 'builder.Services' in the CORS configuration section.  
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowAll", policy =>
+    options.AddPolicy("AllowFrontend", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy.WithOrigins("http://localhost:4200", "http://150.200.12.4:4200") // adjust based on real deployment
               .AllowAnyHeader()
-              .AllowAnyMethod();
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
+
+
 var app = builder.Build();
-app.UseCors("AllowAll");
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -177,12 +197,16 @@ app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 
+app.UseCors("AllowFrontend");
+
 app.UseAuthentication();
 
-app.UseAuthorization();
 
 app.UseMiddleware<ClientConnectionMiddleware>();
+app.UseAuthorization();
 
 app.MapControllers();
+
+
 
 app.Run();

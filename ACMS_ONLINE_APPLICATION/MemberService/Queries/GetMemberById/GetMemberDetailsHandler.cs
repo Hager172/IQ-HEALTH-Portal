@@ -41,6 +41,25 @@ namespace ACMS_ONLINE_APPLICATION.ApprovalService.Queries.GetMemberDetails
 
             try
             {
+
+                // ... existing code ...
+
+                try
+                {
+                    // ... existing code ...
+
+                    // Log the connection string
+                    var connectionString = _unitOfWork.getCurrentConnectionString();
+                    var logFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "connection_log.txt");
+                    await File.AppendAllTextAsync(logFilePath, $"{DateTime.Now}: {connectionString}{Environment.NewLine} ,unit work {_unitOfWork.getCurrentConnectionString()}");
+
+                    // ... rest of your logic ...
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($": {ex.Message}");
+                    throw;
+                }
                 var vendorIdClaim = _httpContextAccessor.HttpContext?.User?.FindFirst("VendorId");
                 if (vendorIdClaim == null || string.IsNullOrEmpty(vendorIdClaim.Value))
                 {

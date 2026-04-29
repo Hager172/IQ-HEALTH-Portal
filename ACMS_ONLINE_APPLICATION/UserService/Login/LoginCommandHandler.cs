@@ -1,19 +1,21 @@
-﻿using  ACMS_ONLINE_INFRASTRUCTURE.Utility.ResponseModel;
-using ACMS_ONLINE_APPLICATION.User.Auth;
+﻿using ACMS_ONLINE_APPLICATION.User.Auth;
 using ACMS_ONLINE_INFRASTRUCTURE.Data.Models;
+using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
 using ACMS_ONLINE_INFRASTRUCTURE.Interfaces;
+using  ACMS_ONLINE_INFRASTRUCTURE.Utility.ResponseModel;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ACMS_ONLINE_INFRASTRUCTURE.Identity.Entities;
-using System.ComponentModel.DataAnnotations;
 using System.Runtime.Intrinsics.X86;
+using System.Text;
+using System.Text.Encodings.Web;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace ACMS_ONLINE_APPLICATION.User.Login
 {
@@ -70,12 +72,24 @@ namespace ACMS_ONLINE_APPLICATION.User.Login
                     await _userManager.UpdateAsync(user);
 
 
+
+                    var userPermissionPages =
+                await _unitOfWork.UserPermissionRepository
+                                 .GetUserPagesAsync(user.Id);
+
+                    
+
+
+
+
+                   
                     var loginResponse = new LoginResponseDto()
                     {
                         Username = request.UserName,
                         // Clients = clients,
                         VendorId = client.VendorId,
                         BranchId = client.BranchId.ToString(),
+                        Pages= userPermissionPages,
                         IsAuthenticated = true,
                         AuthToken = new JwtSecurityTokenHandler().WriteToken(token),
                         ExpiresIn =token.ValidTo, //DateTime.UtcNow.AddDays(_jwt.DurationInDays),

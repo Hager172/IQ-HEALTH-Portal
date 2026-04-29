@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace ACMS_ONLINE_INFRASTRUCTURE.Services
 {
-    public class ClientConnectionOptions
-    {
-        public Dictionary<string, string> ClientConnections { get; set; }
-    }
+    public class ClientConnectionOptions : Dictionary<string, string> { }
+
 }

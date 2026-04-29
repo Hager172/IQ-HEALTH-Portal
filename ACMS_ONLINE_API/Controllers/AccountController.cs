@@ -28,6 +28,12 @@ namespace ACMS_ONLINE_API.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        [HttpGet("ServerStuts", Name = "ServerStuts")]
+        public async Task<ActionResult<string>> ServerStuts()
+        {
+            
+            return Ok("Server is Working");
+        }
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginCommandDto command)
         {
